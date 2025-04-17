@@ -9,7 +9,11 @@ from rest_framework.decorators import renderer_classes
 @renderer_classes([JSONRenderer])
 class Players(APIView):
     def get(self, request):
-        players = Player.objects.all() # Python
+        name = request.query_params.get("name")
+        
+        if name:
+            players = Player.objects.filter(name=name) # Python
+            
         serializers = PlayerSerializers(players, many=True) # Json
 
         return Response(serializers.data)
