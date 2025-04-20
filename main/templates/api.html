@@ -8,6 +8,13 @@
 </head>
 <body>
     <div>
+        <h1>head</h1>
+        <input id="head_input" type="text" placeholder="Verifique se um jogador existe">
+        <button id="head_button" onclick="head_()">verificar</button>
+        <p id="head_result"></p>
+    </div>
+
+    <div>
         <h1>get</h1>
         <input id="get_input" type="text" placeholder="Digite o nome do jogador">
         <button id="get_button" onclick="get()">pegar</button>
@@ -23,6 +30,21 @@
 
 
     <script>
+        // head
+        async function head_() {
+            const nome = document.getElementById("head_input").value
+            result = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`, {method: "HEAD"})
+
+            head_result = document.getElementById("head_result")
+
+            if (result.status === 200) {
+                head_result.innerText = "jogador encontrado"
+                
+            } else {
+                head_result.innerText = "nenhum player encontrado"
+            }
+        }
+
         // get
         async function get() {
             const nome = document.getElementById("get_input").value

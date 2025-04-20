@@ -8,6 +8,18 @@ from rest_framework.decorators import renderer_classes
 
 @renderer_classes([JSONRenderer])
 class Players(APIView):
+    def head(self, request):
+        name = request.query_params.get("name")
+        
+        existe = Player.objects.filter(name=name).exists()
+        
+        if existe:
+            return Response(status=status.HTTP_200_OK)
+        
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        
     def get(self, request):
         name = request.query_params.get("name")
         
@@ -25,3 +37,12 @@ class Players(APIView):
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def put(self):
+        ...
+        
+    def patch(self):
+        ...
+        
+    def delete(self):
+        ...    
