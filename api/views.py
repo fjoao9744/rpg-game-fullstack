@@ -19,14 +19,13 @@ class Players(APIView):
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
-        
     def get(self, request):
         name = request.query_params.get("name")
         
         if name:
-            players = Player.objects.filter(name=name) # Python
+            player = Player.objects.get(name=name) # Python
             
-        serializers = PlayerSerializers(players, many=True) # Json
+        serializers = PlayerSerializers(player) # Json
 
         return Response(serializers.data)
     
@@ -38,8 +37,22 @@ class Players(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def put(self):
-        ...
+    def put(self, request):
+        player_id = request.data.get("id")
+        
+        try:
+            player = Player.objects.get(id=player_id)
+            
+        except Player.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = PlayerSerializers(player, data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
     def patch(self):
         ...

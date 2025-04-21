@@ -28,6 +28,14 @@
         <p id="post_result"></p>
     </div>
 
+    <div>
+        <h1>put</h1>
+        <input id="put_input" type="text" placeholder="Digite o novo level">
+        <input id="put_input_name" type="text" placeholder="Digite o nome do jogador">
+        <button id="put_button" onclick="put()">atualizar level</button>
+        <p id="put_result"></p>
+    </div>
+
 
     <script>
         // head
@@ -47,8 +55,8 @@
 
         // get
         async function get() {
-            const nome = document.getElementById("get_input").value
-            result = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`).then(res => res.json())
+            const name = document.getElementById("get_input").value
+            result = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`).then(res => res.json())
             get_result = document.getElementById("get_result")
 
             if (result.length === 0) {
@@ -76,8 +84,37 @@
 
                 } else {
                   const data = await res.json();
-                  console.log("Player criado com sucesso:", data);
+                  post_result = document.getElementById("post_result")
+                  post_result.innerText = `Player criado com sucesso: {data}`;
                 }
+              });
+        }
+
+        // put
+        async function put() {
+            // supondo que não tenha os dados
+            const nome = document.getElementById("put_input_name").value
+
+            dados = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`).then(res => res.json());
+
+            // uso do put
+            const atk = document.getElementById("put_input").value
+            
+            console.log(dados)
+
+            fetch("http://127.0.0.1:8000/api/", {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    id: dados.id,
+                    name: nome,
+                    atk: atk,
+                })
+              })
+              .then(async res => {
+                put_result = document.getElementById("put_result")
+                put_result.innerText = JSON.stringify(dados)
+
               });
         }
     </script>
