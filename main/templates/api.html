@@ -29,11 +29,26 @@
     </div>
 
     <div>
-        <h1>put</h1>
+        <h1>put</h1> <p>(atualiza todos os dados)</p>
         <input id="put_input" type="text" placeholder="Digite o novo level">
         <input id="put_input_name" type="text" placeholder="Digite o nome do jogador">
-        <button id="put_button" onclick="put()">atualizar level</button>
+        <button id="put_button" onclick="put()">atualizar player</button>
         <p id="put_result"></p>
+    </div>
+
+    <div>
+        <h1>patch</h1> <p>(atualiza apenas um dado)</p>
+        <input id="patch_input" type="text" placeholder="Digite o novo level">
+        <input id="patch_input_name" type="text" placeholder="Digite o nome do jogador">
+        <button id="patch_button" onclick="patch()">atualizar level</button>
+        <p id="patch_result"></p>
+    </div>
+
+    <div>
+        <h1>delete</h1>
+        <input id="delete_input" type="text" placeholder="Digite o nome do jogador">
+        <button id="delete_button" onclick="delete_()">deletar</button>
+        <p id="delete_result"></p>
     </div>
 
 
@@ -114,6 +129,50 @@
               .then(async res => {
                 put_result = document.getElementById("put_result")
                 put_result.innerText = JSON.stringify(dados)
+
+              });
+        }
+
+        // patch
+        async function patch() {
+            // supondo que não tenha os dados
+            const nome = document.getElementById("patch_input_name").value
+
+            dados = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`).then(res => res.json());
+
+            // uso do patch
+            const level = document.getElementById("patch_input").value
+            
+            fetch("http://127.0.0.1:8000/api/", {
+                method: "PATCH",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    id: dados.id, // id obrigatorio
+                    level: level,
+                })
+              })
+              .then(async res => {
+                put_result = document.getElementById("patch_result")
+                put_result.innerText = JSON.stringify(dados)
+
+              });
+        }
+
+        // delete
+        async function delete_() {
+
+            const name = document.getElementById("delete_input").value
+            
+            fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`, {
+                method: "DELETE",
+                headers: {"Content-Type": "application/json"},
+              })
+              .then(async res => {
+                if (res.ok) {
+                    document.getElementById("delete_result").innerText = "Jogador deletado com sucesso.";
+                } else {
+                    document.getElementById("delete_result").innerText = "Erro ao deletar jogador.";
+                }
 
               });
         }
