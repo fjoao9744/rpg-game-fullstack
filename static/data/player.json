@@ -1,9 +1,14 @@
 {
     "nome": "",
+    "kills": 0,
+    "score": 0,
     "level": 1,
     "exp": 0,
     "hp": 0,
     "atk": 2,
+    "skill": {
+
+    },
     "defe": 0,
     "speed": 0
 }

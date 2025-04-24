@@ -1,22 +1,22 @@
 document.body.onload = async () => {
-    player = localStorage.getItem('data')
-    if (player) {
-        console.log(player)
-        const login_button = document.getElementById("login_button")
-        login_button.disabled = true
-        
-    } else {
-        player = await fetch("static/data/player.json").then(response => response.json())
-    }
+    let player = localStorage.getItem("data")
+    if (player) { // verifica se tem algum player logado
+        document.getElementById("login_button").disabled = true
 
-    const monstro = await fetch("static/data/monsters.json").then(response => response.json())
-    
-    slime = { // Teste
-        hp: monstro.slime.hp
+    } else {
+        player = await fetch("static/data/player.json") // player vazio
+        .then(response => response.json())
     }
-    
-    document.getElementById("fight_option").onclick = function() {
-        slime.hp -= player.atk
-        console.log(slime.hp)
+    const monster = monsters()
+
+    console.log(await monster.next())
+
 }
+
+async function* monsters() { // gerador que retorna monstro por monstro
+    const monsters = await fetch("static/data/monsters.json").then(response => response.json())
+    for (let i = 0; i < monsters.length; i++) {
+        yield monsters[i]
+        
+    }
 }

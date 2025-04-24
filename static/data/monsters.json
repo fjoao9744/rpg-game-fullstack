@@ -2,9 +2,17 @@
     "slime": {
         "nome": "slime",
         "level": 1,
+        "score": 20,
         "exp":10,
         "hp": 20,
         "atk": 2,
+        "skills": {
+            "bater": {
+                "dano": 1,
+                "chance": 100,
+                "effects": 0
+            }
+        },
         "def": 0,
         "speed": 1
     }
