@@ -1,86 +1,56 @@
-// document.getElementById("login_button").onclick = function() {
-//     nome = prompt("Digite seu nome:")
+async function playerExists(name) { // player existe?
+  const response = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`, {method: "HEAD"})
 
-//     fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`) // busca o jogador
-//     .then(res => res.json())
-//     .then(data => {
-//       if (data.length === 0) {
-//         alert("Player não encontrado!");
-//         fetch("http://127.0.0.1:8000/api/", { // adiciona um player
-//             method: "POST",
-//             headers: {"Content-Type": "application/json"},
-//             body: JSON.stringify({
-//               name: nome,
-//             })
-//           })
-//           .then(async res => {
-//             if (!res.ok) {  // Verifica se o status não é 2xx
-//               const errorData = await res.json();  // Lê o erro retornado
-              
-//               if (errorData.name) {  // Se o erro for relacionado ao nome duplicado
-//                 alert("Erro: Nome já em uso!");  // Exibe a mensagem de erro para o usuário
-//               }
-//             } else {
-//               const data = await res.json();
-//               console.log("Player criado com sucesso:", data);
-//             }
-//           });
-        
-//     } else {
-//         localStorage.setItem("player", data);
-//     }
-//     location.reload()
+  return response.ok
+}
 
-// })}
-
-// document.getElementById("logout_button").onclick = function() {
-//     localStorage.removeItem("data")
-//     location.reload()
-// }
-
-document.getElementById("login_button").onclick = async () => {
+document.getElementById("login_button").onclick = async () => { // login
   let nome = prompt("Digite seu nome...")
   
-  const response = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`, {method: "HEAD"})
-
-  if (response.ok) {  // player existe
-    player_data = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`, {method: "GET"}).then(res => res.json())
+  if (await playerExists(nome)) { 
+    let player_data = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(nome)}`, {method: "GET"}).then(res => res.json())
     localStorage.setItem("player", JSON.stringify(player_data))
-    console.log(player_data)
 
-    let smogon = document.querySelectorAll(".sing-up__button")
-      smogon.forEach((value) => {
-          value.style.display = "none";
-      })
-      document.querySelector(".second__sing-up").style.display = "block";
-
-    return
+    logar(false);
   }
 }
 
-document.getElementById("register_button").onclick = async () => {
+document.getElementById("register_button").onclick = async () => { // register
   let nome = prompt("Digite seu nome...")
 
-  fetch("http://127.0.0.1:8000/api/", { method: "POST", headers: {"Content-Type": "application/json"},
+  if (await playerExists(nome)) {
+    alert("O nome ja esta cadastrado, tente novamente.")
+    return
+  }
+
+  await fetch("http://127.0.0.1:8000/api/", { method: "POST", headers: {"Content-Type": "application/json"},
   body: JSON.stringify({
   name: nome,
   })})
 
-  let smogon = document.querySelectorAll(".sing-up__button")
-      smogon.forEach((value) => {
-          value.style.display = "none";
-      })
-      document.querySelector(".second__sing-up").style.display = "block";
-}
-    
+  logar(false);
 
-document.querySelector(".second__sing-up").onclick = () => {
+}
+
+document.querySelector(".second__sing-up").onclick = () => { 
     localStorage.removeItem("player")
-    location.reload()
+    logar(true)
     
+  }
+
+function logar(active) {
+  if (active) {
     document.querySelector(".second__sing-up").style.display = "none";
     let smogon = document.querySelectorAll(".sing-up__button")
     smogon.forEach((value) => {
-      value.style.display = "block";
+    value.style.display = "block";
+    
+  })} else {
+    document.querySelector(".second__sing-up").style.display = "block";
+    let smogon = document.querySelectorAll(".sing-up__button")
+    smogon.forEach((value) => {
+      value.style.display = "none";
     })
+  } localStorage.setItem("logged", !active);
+  
 }

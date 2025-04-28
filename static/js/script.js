@@ -1,16 +1,18 @@
 document.body.onload = async () => {
-    let player = localStorage.getItem("player")
+    let player = localStorage.getItem("player");
     console.log(player)
-    
-    if (player) { 
-        ///
+
+    let logged = JSON.parse(localStorage.getItem("logged"))
+    console.log(logged)
+
+    if (logged) {
+        logar(false)
+
     } else {
         player = await fetch("static/data/player.json") // player vazio
         .then(response => response.json())
+
     }
-
-    localStorage.setItem("player", player)
-
     
     const monsters_gen = monsters() // gerador de monstros
 
