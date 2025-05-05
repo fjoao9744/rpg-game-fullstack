@@ -1,7 +1,7 @@
 async function playerExists(name) { // player existe?
   const response = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`, {method: "HEAD"})
 
-  return response.ok
+  return response.ok ?? false;
 }
 
 document.getElementById("login_button").onclick = async () => { // login
@@ -12,6 +12,9 @@ document.getElementById("login_button").onclick = async () => { // login
     localStorage.setItem("player", JSON.stringify(player_data))
 
     logar(false);
+    location.reload();
+  } else {
+    logar(true);
   }
 }
 
@@ -20,7 +23,7 @@ document.getElementById("register_button").onclick = async () => { // register
 
   if (await playerExists(nome)) {
     alert("O nome ja esta cadastrado, tente novamente.")
-    return
+    return;
   }
 
   await fetch("http://127.0.0.1:8000/api/", { method: "POST", headers: {"Content-Type": "application/json"},
@@ -29,6 +32,7 @@ document.getElementById("register_button").onclick = async () => { // register
   })})
 
   logar(false);
+  location.reload();
 
 }
 
@@ -51,6 +55,6 @@ function logar(active) {
     smogon.forEach((value) => {
       value.style.display = "none";
     })
-  } localStorage.setItem("logged", !active);
-  
+  } 
+  localStorage.setItem("logged", !active);
 }
