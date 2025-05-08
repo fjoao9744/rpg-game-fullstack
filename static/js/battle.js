@@ -1,7 +1,16 @@
-let player = localStorage.getItem("data")
+// let player = localStorage.getItem("data")
+// let fight_option = document.getElementById("fight_option")
+// const opt__manager = document.querySelectorAll('.opt-mnager')
 
-let fight_option = document.getElementById("fight_option")
+// fight_option.onclick = (smog) => {
+// console.log(fight_option.onclick == true)
+// console.log(smog)
+// }
 
-fight_option.onclick = () => {
-console.log(player.nome)
-}
+// switch (opt__manager[0].onclick) {
+//     case true:
+//         console.log("smogon")
+//         break
+//     default:
+//         console.log("capa")
+// }

@@ -132,15 +132,15 @@ footer {
     }
 
     .monster__area {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
         border: 2px dashed white;
         border-right: 0;
     }
     
     #monster__image {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 
     .opt-player__area {
