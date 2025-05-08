@@ -15,6 +15,7 @@ SECRET_KEY = 'django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "rpg-game-fullstack.onrender.com"
 ]
 
 
