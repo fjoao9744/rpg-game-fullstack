@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Em produção (Render), você pode precisar:
@@ -126,7 +126,8 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')  # Crie essa pasta na raiz do projeto
+    os.path.join(BASE_DIR, 'static'),  # Crie essa pasta na raiz do projeto
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 # Default primary key field type
