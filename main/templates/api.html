@@ -85,7 +85,7 @@
         async function post() {
             const nome = document.getElementById("post_input").value
 
-            fetch("http://127.0.0.1:8000/api/", { // adiciona um player
+            await fetch("http://127.0.0.1:8000/api/", { // adiciona um player
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
