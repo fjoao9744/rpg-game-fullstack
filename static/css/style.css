@@ -43,6 +43,7 @@ main {
 }
 
 .monster__area {
+    position: relative;
     width: 300px;
     height: 300px;
     border: 2px dashed white;
@@ -51,6 +52,18 @@ main {
 #monster__image {
     width: 300px;
     height: 300px;
+}
+
+.atack-animation__area {
+    position: relative;
+    width: 150%;
+    height: 150%;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 footer {
@@ -121,6 +134,7 @@ footer {
 }
 
 @media screen and (max-width: 1324px) and (max-height: 654px) {
+
     main {
         display: flex;
         align-items: center;
