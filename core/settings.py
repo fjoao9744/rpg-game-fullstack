@@ -1,20 +1,20 @@
-
+import dj_database_url
+from decouple import config
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-DEBUG = True
 
 ALLOWED_HOSTS = [
     "rpg-game-fullstack.onrender.com",
     '127.0.0.1'
 ]
 
+SECRET_KEY = config("SECRET_KEY")
 
 # Application definition
 
@@ -62,11 +62,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import dj_database_url
-from decouple import config
-import os
-
-SECRET_KEY = config("SECRET_KEY")
 IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
 
 if IS_PRODUCTION:
@@ -118,17 +113,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # onde vão os arquivos após o collectstatic
 
-# Em produção (Render), você pode precisar:
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
-# Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Crie essa pasta na raiz do projeto
-    os.path.join(BASE_DIR, 'staticfiles')
+    os.path.join(BASE_DIR, 'static'),
 ]
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
