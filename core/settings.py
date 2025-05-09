@@ -126,13 +126,11 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Crie essa pasta na raiz do projeto
+    os.path.join(BASE_DIR, 'static')  # Crie essa pasta na raiz do projeto
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-import os
 
 # URL base pra acessar as mídias via navegador
 MEDIA_URL = '/media/'
