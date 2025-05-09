@@ -14,7 +14,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1'
 ]
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = "django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1"
 
 # Application definition
 
@@ -113,18 +113,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # onde vão os arquivos após o collectstatic
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+STATIC_URL = 'static/'
 
 # URL base pra acessar as mídias via navegador
 MEDIA_URL = '/media/'
