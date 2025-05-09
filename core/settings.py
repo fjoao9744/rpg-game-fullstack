@@ -122,6 +122,9 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Esse é mais usado em produção
 
+# Em produção (Render), você pode precisar:
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 # Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Crie essa pasta na raiz do projeto
