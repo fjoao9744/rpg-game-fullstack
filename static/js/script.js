@@ -15,15 +15,6 @@ document.body.onload = async () => {
     const monsters_gen = monsters() // gerador de monstros
 
     let monster = await monsters_gen.next() // toda vez que chamar o .next() ele vai dar o proximo monstro
-
-    console.log(monster.value)
-
-    monster = await monsters_gen.next()
-    console.log(monster.value)
-
-    monster = await monsters_gen.next()
-    console.log(monster.value)
-
 }
 
 async function* monsters() { // gerador que retorna monstro por monstro
