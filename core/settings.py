@@ -1,7 +1,7 @@
 import dj_database_url
 from decouple import config
-import os
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -109,15 +109,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Esse é mais usado em produção
+
+# Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # se tiver uma pasta static personalizada
+    BASE_DIR / 'static',  # Crie essa pasta na raiz do projeto
 ]
 
 # URL base pra acessar as mídias via navegador
