@@ -8,10 +8,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
@@ -63,22 +59,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DEBUG = True
 
 import dj_database_url
 from decouple import config
 import os
 
+SECRET_KEY = config("SECRET_KEY")
 IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
 
 if IS_PRODUCTION:
     DATABASES = {
         'default': dj_database_url.parse(config("DATABASE_URL"))
     }
+    DEBUG = False
     
 else:
     DATABASES = {
@@ -87,8 +82,8 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
-
+    DEBUG = True
+    
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
