@@ -21,7 +21,7 @@ async function getUser() { // retorna os dados do jogador(do banco)
 async function createUser() { // cria um usuario do 0
     let response = await fetch(`${BASE_URL}/api/`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken},
         body: JSON.stringify({ name: username })
     });
 

@@ -75,6 +75,7 @@
     
     <script>
         const username = "{{ username|escapejs }}";
+        const csrftoken = "{{ csrf_token }}";
     </script>
     <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
