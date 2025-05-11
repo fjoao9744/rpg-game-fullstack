@@ -9,11 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = [
-    "rpg-game-fullstack.onrender.com",
-    '127.0.0.1',
-    'localhost'
-]
+ALLOWED_HOSTS = []
 
 SECRET_KEY = "django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1"
 
@@ -68,11 +64,13 @@ IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
 
 if IS_PRODUCTION:
     DATABASES = {
-        'default': dj_database_url.parse(config("DATABASE_URL"), # type: ignore
-            conn_max_age=600,
-            ssl_require=True)
+        'default': dj_database_url.config(
+        default="postgresql://neondb_owner:npg_cATPmxCs1EU5@ep-mute-tooth-a6k3wpy4-pooler.us-west-2.aws.neon.tech/neondb?sslmode=require",
+        conn_max_age=600,
+        ssl_require=True
+    )
     }
-    DEBUG = False
+    DEBUG = True
     STATIC_URL = '/static/'
     
 else:
@@ -136,7 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
     ]
 }
-
 

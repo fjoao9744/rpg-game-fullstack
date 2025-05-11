@@ -1,4 +1,4 @@
-document.body.onload = async () => {
+document.body.onload = async () => {    
     const monsters_gen = monsters() // gerador de monstros
 
     let monster = await monsters_gen.next() // toda vez que chamar o .next() ele vai dar o proximo monstro
@@ -10,8 +10,9 @@ async function* monsters() { // gerador que retorna monstro por monstro
         yield monster
         
     }
-
 }
+
+// DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {
     const messages = document.querySelectorAll('.django-message__div');
 
@@ -25,4 +26,3 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     });
   });
-

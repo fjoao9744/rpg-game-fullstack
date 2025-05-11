@@ -5,5 +5,5 @@ from main import views as v # test
 
 urlpatterns = [
     path("", views.Players.as_view()),
-    path("test/", v.api_test) # test
 ]
+

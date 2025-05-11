@@ -25,7 +25,7 @@ class Players(APIView):
         if name:
             player = Player.objects.get(name=name) # Python
             
-        serializers = PlayerSerializers(player, many=True) # Json
+        serializers = PlayerSerializers(player) # Json
 
         return Response(serializers.data)
     

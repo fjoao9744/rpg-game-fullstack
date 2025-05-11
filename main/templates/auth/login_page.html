@@ -22,8 +22,8 @@
 
     <div>
         <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
-            <input type="text" placeholder="Digite seu nome" name="username">
-            <input type="password" placeholder="Digite sua senha" name="password">
+            <input id="username__input" type="text" placeholder="Digite seu nome" name="username">
+            <input id="password__input" type="password" placeholder="Digite sua senha" name="password">
             
             <button type="submit">logar</button>
         </form>
