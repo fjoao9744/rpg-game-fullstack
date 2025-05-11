@@ -9,7 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'rpg-game-fullstack.onrender.com'
+]
 
 SECRET_KEY = "django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1"
 
