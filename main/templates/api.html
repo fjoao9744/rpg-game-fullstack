@@ -71,7 +71,10 @@
         // get
         async function get() {
             const name = document.getElementById("get_input").value
-            result = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`).then(res => res.json())
+            result = await fetch(`http://127.0.0.1:8000/api/?name=${encodeURIComponent(name)}`, {
+                method: "GET",
+                headers: {"Content-Type": "application/json"}
+            }).then(res => res.json())
             get_result = document.getElementById("get_result")
 
             if (result.length === 0) {
@@ -100,7 +103,7 @@
                 } else {
                   const data = await res.json();
                   post_result = document.getElementById("post_result")
-                  post_result.innerText = `Player criado com sucesso: {data}`;
+                  post_result.innerText = `Player criado com sucesso: ${data}`;
                 }
               });
         }

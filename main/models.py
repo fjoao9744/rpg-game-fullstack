@@ -9,6 +9,7 @@ class Player(models.Model):
     hp = models.IntegerField(default=0)
     atk = models.IntegerField(default=0)
     skills = models.JSONField(default=dict)
+    inventory = models.JSONField(default=dict)
     defe = models.IntegerField(default=0)
     speed = models.IntegerField(default=0)
 

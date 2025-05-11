@@ -1,15 +1,24 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <title>Smogon</title>
     
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701534999211145" 
+    crossorigin="anonymous"></script>
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="django-message__div">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    
     <div id="root">
         <header>
             <div class="monster__name">
@@ -28,43 +37,47 @@
             </div>
             
             <div class="opt-player__area">
-                <div id="fight_option", class="options opt-manager">
+                <div id="fight_option" class="options opt-manager">
                     FIGHT
                 </div>
     
-                <div id="speel_option", class="options opt-manager">
+                <div id="speel_option" class="options opt-manager">
                     SPEELS
                 </div>
     
-                <div id="item_option", class="options opt-manager">
+                <div id="item_option" class="options opt-manager">
                     ITEMS
                 </div>
     
-                <div id="run_option", class="options opt-manager">
+                <div id="run_option" class="options opt-manager">
                     RUN
                 </div>
             </div>
         </main>
         <footer>
-            <div class="stats-player__area">
-                <button id="login_button" class="sing-up__button">Login</button>
-                <button id="register_button" class="sing-up__button">Cadastro</button>
-
-            </div>
-
-            
+            {% if user.is_authenticated %}
             <div>
-                <button id="logout_button" class="sing-up second__sing-up">Logout</button>
+                <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}">logout</a></button>
             </div>
+
+            {% else %}
+            <div class="stats-player__area">
+                <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
+                <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
+            </div>
+            {% endif %}
+
             <div>
                 <p>&copy; João F. & Smogon</p>
             </div>
-            
         </footer>
     </div>
-
-    <script src="{% static 'js/script.js' %}"></script>
+    
+    <script>
+        const username = "{{ username|escapejs }}";
+    </script>
     <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/battle.js' %}"></script>
 
 </body>

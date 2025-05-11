@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from main.models import Player
 from api.serializers import PlayerSerializers
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import renderer_classes
 
@@ -25,11 +25,15 @@ class Players(APIView):
         if name:
             player = Player.objects.get(name=name) # Python
             
-        serializers = PlayerSerializers(player) # Json
+        serializers = PlayerSerializers(player, many=True) # Json
 
         return Response(serializers.data)
     
     def post(self, request):
+        name = request.data.get("name")
+        if Player.objects.filter(name=name).exists():
+            return Response({"detail": "Player with this name already exists."}, status=status.HTTP_400_BAD_REQUEST)
+        
         serializer = PlayerSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()

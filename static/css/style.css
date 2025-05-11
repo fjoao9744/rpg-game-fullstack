@@ -78,10 +78,6 @@ footer {
     width: 100%;
 }
 
-.second__sing-up {
-    display: none;
-}
-
 
 .stats-player__area {
     width: 80%;
@@ -229,4 +225,31 @@ footer {
         transition: background-color .4s ease;
     
     }
+}
+
+.django-message__div {
+  background-color: white;
+  align-items: center;
+  font-size: 18px;
+  top: 0px;
+  height: 50px;
+  position: absolute;
+  color: black;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.django-message__div.django-message__div-animation {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.django-message__div.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }

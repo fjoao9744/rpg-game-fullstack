@@ -11,7 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
     "rpg-game-fullstack.onrender.com",
-    '127.0.0.1'
+    '127.0.0.1',
+    'localhost'
 ]
 
 SECRET_KEY = "django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1"
@@ -67,11 +68,12 @@ IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
 
 if IS_PRODUCTION:
     DATABASES = {
-        'default': dj_database_url.parse(config("DATABASE_URL"),
+        'default': dj_database_url.parse(config("DATABASE_URL"), # type: ignore
             conn_max_age=600,
             ssl_require=True)
     }
     DEBUG = False
+    STATIC_URL = '/static/'
     
 else:
     DATABASES = {
@@ -81,7 +83,8 @@ else:
         }
     }
     DEBUG = True
-    
+    STATIC_URL = 'static/'
+  
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -117,8 +120,6 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Esse é mais usado em produção
 
-STATIC_URL = '/static/'
-
 # Diretórios adicionais onde seus arquivos static podem estar
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # Crie essa pasta na raiz do projeto
@@ -137,3 +138,5 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+
