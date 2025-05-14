@@ -11,7 +11,7 @@
             user = await createUser()
             console.log("O player não existe: ", user)
         }
-
+        
         localStorage.setItem("player", JSON.stringify(user)) // pega o usuario e manda para o localstorage
 
     }
