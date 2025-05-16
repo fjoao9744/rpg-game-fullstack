@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Player(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='player')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='player', null=False, blank=True)
     kill = models.IntegerField(default=0)
     score = models.IntegerField(default=0)
     level = models.IntegerField(default=1)

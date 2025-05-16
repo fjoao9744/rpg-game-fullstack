@@ -5,33 +5,42 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import renderer_classes
+from django.contrib.auth.models import User
 
 @renderer_classes([JSONRenderer])
 class Players(APIView):
     def head(self, request):
-        name = request.query_params.get("name")
+        username = request.query_params.get("name")
         
-        existe = Player.objects.filter(name=name).exists()
-        
-        if existe:
-            return Response(status=status.HTTP_200_OK)
-        
-        else:
+        try:
+            user = User.objects.get(username=username)
+            existe = Player.objects.filter(user=user).exists()
+                
+            if existe:
+                return Response(status=status.HTTP_200_OK)
+            
+            else:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            
+        except User.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
     def get(self, request):
-        name = request.query_params.get("name")
+        username = request.query_params.get("name")
         
-        if name:
-            player = Player.objects.get(name=name) # Python
+        if username:
+            user = User.objects.get(username=username)
+            player = Player.objects.get(user=user) # Python
             
         serializers = PlayerSerializers(player) # Json
 
         return Response(serializers.data)
     
     def post(self, request):
-        name = request.data.get("name")
-        if Player.objects.filter(name=name).exists():
+        username = request.data.get("name")
+        user = User.objects.get(username=username)
+        
+        if Player.objects.filter(user=user).exists():
             return Response({"detail": "Player with this name already exists."}, status=status.HTTP_400_BAD_REQUEST)
         
         serializer = PlayerSerializers(data=request.data)

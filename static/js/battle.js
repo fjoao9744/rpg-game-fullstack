@@ -1,8 +1,6 @@
-let player = JSON.parse(localStorage.getItem("player"));
 let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
-console.log(player)
 
 window.onload = () => {
     opt__manager.forEach((opt) => {
