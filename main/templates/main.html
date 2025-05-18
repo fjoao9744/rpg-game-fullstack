@@ -69,18 +69,17 @@
             {% endif %}
 
             <div>
-                <p>&copy; João F. & Smogon</p>
+                <p>&copy; <a href="https://github.com/fjoao9744">João F.</a> & <a href="https://github.com/HendrickReis">Smogon</a></p>
             </div>
         </footer>
     </div>
     
     <script>
         const username = "{{ username|escapejs }}";
-        const csrftoken = "{{ csrf_token }}";
     </script>
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/battle.js' %}"></script>
 
 </body>

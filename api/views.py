@@ -28,9 +28,18 @@ class Players(APIView):
     def get(self, request):
         username = request.query_params.get("name")
         
-        if username:
+        if not username:
+            return Response({"erro": "Parâmetro 'name' não fornecido."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
             user = User.objects.get(username=username)
-            player = Player.objects.get(user=user) # Python
+            player = Player.objects.get(user=user)
+            
+        except User.DoesNotExist:
+            return Response({"erro": "Usuário não encontrado."}, status=status.HTTP_404_NOT_FOUND)
+        
+        except Player.DoesNotExist:
+            return Response({"erro": "Jogador não encontrado."}, status=status.HTTP_404_NOT_FOUND)
             
         serializers = PlayerSerializers(player) # Json
         
@@ -67,7 +76,8 @@ class Players(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+    
+    # olhar mais tarde
     def patch(self, request):
         player_id = request.data.get("id")
         try:

@@ -21,7 +21,7 @@ async function getPlayer() { // retorna os dados do jogador(do banco)
 async function createPlayer() { // cria um usuario do 0
     let response = await fetch(`${BASE_URL}/api/`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken},
+        headers: { "Content-Type": "application/json"},
         body: JSON.stringify({ name: username })
     });
     
@@ -31,5 +31,12 @@ async function createPlayer() { // cria um usuario do 0
 
 async function updatePlayer() { // atualiza o player no banco e no localstorage
     localStorage.setItem("player", JSON.stringify(player))
-    // api
+    let response = await fetch(`${BASE_URL}/api/`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(player)
+    });
+
+    const data = await response.json();
+    return data;
 }
