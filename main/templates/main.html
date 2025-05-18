@@ -56,17 +56,21 @@
             </div>
         </main>
         <footer>
-            {% if user.is_authenticated %}
             <div>
-                <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
+                {% if user.is_authenticated %}
+                <div>
+                    <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
+                </div>
+                <div>
+                    <p>nome: {{ username }}</p>
+                </div>
+                {% else %}
+                <div class="stats-player__area">
+                    <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
+                    <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
+                </div>
+                {% endif %}
             </div>
-
-            {% else %}
-            <div class="stats-player__area">
-                <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
-                <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
-            </div>
-            {% endif %}
 
             <div>
                 <p>&copy; <a href="https://github.com/fjoao9744">João F.</a> & <a href="https://github.com/HendrickReis">Smogon</a></p>
