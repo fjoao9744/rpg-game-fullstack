@@ -1,0 +1,142 @@
+{
+    "attack1" : {
+        "name": "ataque basico",
+        "type": "none",
+        "damage": [2, 5],
+        "description": "um simples ataque",
+        "gif": "../media/sprites/atacks/attack basic.gif"
+    },
+    "attack2" : {
+        "name": "ataque forte",
+        "type": "none",
+        "damage": [4, 8],
+        "description": "um golpe poderoso",
+        "gif": "../media/sprites/atacks/attack basic.gif"
+    },
+    "magic1" : {
+        "name": "bola de fogo",
+        "type": "fire",
+        "damage": [5, 15],
+        "description": "uma poderosa bola de fogo",
+        "gif": "../media/sprites/atacks/flame.gif"
+    },
+    "magic2" : {
+        "name": "martelo magico",
+        "type": "fire",
+        "damage": [10, 15],
+        "description": "um martelo de fogo é criado e desfere um forte ataque no inimigo",
+        "gif": "../media/sprites/atacks/hammer flame.gif"
+    },
+    "summon1" : {
+        "name": "morcego negro",
+        "type": "dark",
+        "damage": [8, 18],
+        "description": "um morcego feito de magia negra é lançado invocado contra o inimigo",
+        "gif": "../media/sprites/atacks/bat.gif"
+    },
+    "magic3" : {
+        "name": "fogo sangrento",
+        "type": "blood",
+        "damage": [5, 20],
+        "description": "um fogo vermelho é gerado na superficie do inimigo",
+        "gif": "../media/sprites/atacks/blood atack.gif"
+    },
+    "magic4" : {
+        "name": "bola de fogo 2",
+        "type": "fire",
+        "damage": [10, 20],
+        "description": "uma bola de fogo poderosa é dispara contra o inimigo",
+        "gif": "../media/sprites/atacks/blue flames.gif"
+    },
+    "summon2" : {
+        "name": "borboleta magica",
+        "type": "life",
+        "damage": [1, 50],
+        "description": "cria uma borboleta de mana gigante que ataca o inimigo",
+        "gif": "../media/sprites/atacks/butterfly.gif"
+    },
+    "magic5" : {
+        "name": "explosão eletrica",
+        "type": "electric",
+        "damage": [20, 23],
+        "description": "uma bola de fogo poderosa é dispara contra o inimigo",
+        "gif": "../media/sprites/atacks/electric power.gif"
+    },
+    "magic6" : {
+        "name": "explosão",
+        "type": "explosion",
+        "damage": [50, 50],
+        "description": "uma poderosa explosão",
+        "gif": "../media/sprites/atacks/explosion.gif"
+    },
+    "magic7" : {
+        "name": "pequena explosão",
+        "type": "explosion",
+        "damage": [20, 20],
+        "description": "uma pequena explosão",
+        "gif": "../media/sprites/atacks/explosion2.gif"
+    },
+    "magic8" : {
+        "name": "bola de fogo 3",
+        "type": "fire",
+        "damage": [10, 30],
+        "description": "uma grande e poderosa bola de fogo",
+        "gif": "../media/sprites/atacks/fire ball.gif"
+    },
+    "attack3" : {
+        "name": "golpe gelido",
+        "type": "ice",
+        "damage": [8, 32],
+        "description": "uma golpe que congela o inimigo",
+        "gif": "../media/sprites/atacks/ice.gif"
+    },
+    "magic9" : {
+        "name": "estacas de gelo",
+        "type": "ice",
+        "damage": [15, 28],
+        "description": "estacas de gelo são criadas contr ao inimigo",
+        "gif": "../media/sprites/atacks/ice2.gif"
+    },
+    "magic10" : {
+        "name": "brilho",
+        "type": "light",
+        "damage": [30, 30],
+        "description": "uma pequena explosão de luz",
+        "gif": "../media/sprites/atacks/light.gif"
+    },
+    "summon3" : {
+        "name": "céu estrelado",
+        "type": "light",
+        "damage": [-50, 70],
+        "description": "as estrelas brilham no céu para enfraquecer o inimigo",
+        "gif": "../media/sprites/atacks/light2.gif"
+    },
+    "magic11" : {
+        "name": "magia eletrica",
+        "type": "electric",
+        "damage": [25, 35],
+        "description": "desfere um pequeno raio no inimigo",
+        "gif": "../media/sprites/atacks/lightning.gif"
+    },
+    "summon4": {
+        "name": "trovão",
+        "type": "electric",
+        "damage": [70, 70],
+        "description": "evoca um trovão.",
+        "gif": "../media/sprites/atacks/lightning2.gif"
+    },
+    "especial1" : {
+        "name": "ataques multiplos",
+        "type": "especial",
+        "damage": [10, 100],
+        "description": "desfere varias magias contra o inimigo",
+        "gif": "../media/sprites/atacks/multi atacks.gif"
+    },
+    "atack4" : {
+        "name": "cortes negros",
+        "type": "dark",
+        "damage": [25, 40],
+        "description": "desfere varios cortes negros",
+        "gif": "../media/sprites/atacks/slices dark.gif"
+    }
+}

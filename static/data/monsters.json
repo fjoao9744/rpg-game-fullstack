@@ -8,15 +8,30 @@
         "atk": 2,
         "skills": {
             "bater": {
-                "dano": 1,
-                "chance": 100,
-                "effects": 0
+                "damage": [2, 5],
+                "message": "O slide te ataca!"
             }
         },
         "def": 0,
         "speed": 1
     },
-    "orc": {
+    "gnull": {
+        "name": "gnull",
+        "level": 1,
+        "score": 45,
+        "exp":25,
+        "hp": 40,
+        "atk": 5,
+        "skills": {
+            "golpe de machado" : {
+                "damage": [5, 10],
+                "message": "O gnull te ataca com o machado"
+            }
+        },
+        "def": 5,
+        "speed": 5
+    }, //
+    "gargula": {
         "name": "orc",
         "level": 1,
         "score": 20,
@@ -25,7 +40,7 @@
         "atk": 2,
         "skills": {
             "bater": {
-                "dano": 1,
+                "damage": 1,
                 "chance": 100,
                 "effects": 0
             }
@@ -42,7 +57,7 @@
         "atk": 2,
         "skills": {
             "bater": {
-                "dano": 1,
+                "damage": 1,
                 "chance": 100,
                 "effects": 0
             }

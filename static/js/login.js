@@ -24,7 +24,7 @@ async function createPlayer() { // cria um usuario do 0
         headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken},
         body: JSON.stringify({ name: username })
     });
-
+    
     const data = await response.json();
     return data;
 }

@@ -1,5 +1,5 @@
 {
-    "nome": "",
+    "name": "",
     "kills": 0,
     "score": 0,
     "level": 1,
@@ -11,7 +11,7 @@
             "nome": "bater",
             "dano": 5,
             "description": "é um bater né jamanta, o que você acha que seria de mais? ",
-            "gif":"../media/sprites/atacks/explosion.gif"
+            "gif":"../media/sprites/atacks/attack basic.gif"
         }
     },
     "defe": 0,

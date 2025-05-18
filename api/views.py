@@ -33,7 +33,7 @@ class Players(APIView):
             player = Player.objects.get(user=user) # Python
             
         serializers = PlayerSerializers(player) # Json
-
+        
         return Response(serializers.data)
     
     def post(self, request):
