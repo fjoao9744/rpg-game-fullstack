@@ -16,7 +16,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rpg-game-fullstack.onrender.com"
+    "https://rpg-game-fullstack.onrender.com",
+    "https://rpg-game-fullstack-production.up.railway.app"
 ]
 
 SECRET_KEY = "django-insecure-pd^kexiu#6#p@t+vvs&-s-18^9f=f0&l$=n&nu%xi(@-pb&xd1"
