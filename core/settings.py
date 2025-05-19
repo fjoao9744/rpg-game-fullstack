@@ -11,7 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
     'localhost',
-    'rpg-game-fullstack.onrender.com'
+    'rpg-game-fullstack.onrender.com',
+    'rpg-game-fullstack-production.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [

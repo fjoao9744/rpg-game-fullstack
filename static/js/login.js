@@ -1,9 +1,16 @@
-const isLocalhost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+const hostname = window.location.hostname;
 
-const BASE_URL = isLocalhost
-  ? "http://localhost:8000"
-  : "https://rpg-game-onrender.com";
+let BASE_URL;
 
+if (["localhost", "127.0.0.1", "::1"].includes(hostname)) {
+  BASE_URL = "http://localhost:8000";
+} else if (hostname.includes("onrender.com")) {
+  BASE_URL = "https://rpg-game-fullstack.onrender.com";
+} else if (hostname.includes("railway.app")) {
+  BASE_URL = "https://rpg-game-fullstack-production.up.railway.app";
+} else {
+  BASE_URL = "https://rpg-game-fullstack-production.up.railway.app"; // valor padrão
+}
 
 async function userExists() { // da um head para verificar se um user existe
     response = await fetch(`${BASE_URL}/api/?name=${encodeURIComponent(username)}`, {method: "HEAD"})
