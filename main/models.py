@@ -7,10 +7,12 @@ class Player(models.Model):
     score = models.IntegerField(default=0)
     level = models.IntegerField(default=1)
     exp = models.IntegerField(default=0)
+    gold = models.IntegerField(default=0)
     hp = models.IntegerField(default=0)
     atk = models.IntegerField(default=0)
     skills = models.JSONField(default=dict)
     inventory = models.JSONField(default=dict)
+    achievements = models.JSONField(default=dict)
     defe = models.IntegerField(default=0)
     speed = models.IntegerField(default=0)
 

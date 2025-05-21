@@ -9,7 +9,7 @@
         "skills": {
             "bater": {
                 "damage": [2, 5],
-                "message": "O slide te ataca!"
+                "message": "O slime te ataca!"
             }
         },
         "def": [0, 0],
@@ -55,7 +55,7 @@
         "image": "../media/sprites/monsters/orc.gif"
     },
     "bat": {
-        "name": "bat",
+        "name": "morcego gigante",
         "level": 2,
         "score": 40,
         "exp":25,
@@ -71,4 +71,76 @@
         "speed": 20,
         "image": "../media/sprites/monsters/bat.gif"
     },
+    "kobold": {
+        "name": "kobold",
+        "level": 2,
+        "score": 50,
+        "exp":30,
+        "hp": 70,
+        "atk": 15,
+        "skills": {
+            "golpe com espada" : {
+                "damage": [10, 30],
+                "message": "kobold te acerta com uma espadada"
+            }
+        },
+        "def": [0, 10],
+        "speed": 30,
+        "image": "../media/sprites/monsters/kobold.gif"
+    },
+    "esqueleton": {
+        "name": "esqueleto",
+        "level": 3,
+        "score": 45,
+        "exp":25,
+        "hp": 50,
+        "atk": 15,
+        "skills": {
+            "golpe com espada" : {
+                "damage": [10, 30],
+                "message": "esqueleto te acerta com uma espadada"
+            }
+        },
+        "def": [10, 15],
+        "speed": 15,
+        "image": "../media/sprites/monsters/esqueleton.gif"
+    },
+    "slime2": {
+        "name": "slime verde",
+        "level": 3,
+        "score": 35,
+        "exp":30,
+        "hp": 35,
+        "atk": 5,
+        "skills": {
+            "bater": {
+                "damage": [2, 5],
+                "message": "O slime te ataca!"
+            }
+        },
+        "def": [0, 0],
+        "speed": 2,
+        "image": "../media/sprites/monsters/slime green.gif"
+    },
+    "goblin(rare)": {
+        "name": "goblin",
+        "level": 3,
+        "score": 200,
+        "exp":15,
+        "hp": 40,
+        "atk": 5,
+        "skills": {
+            "golpe de machado" : {
+                "damage": [5, 10],
+                "message": "O goblin te ataca com o machado"
+            },
+            "corte infernal" : {
+                "damage": [45, 70],
+                "message": "O goblin desfere um poderoso corte que incendeia as paredes da dungeon"
+            }
+        },
+        "def": [0, 2],
+        "speed": 5,
+        "image": "../media/sprites/monsters/goblin rare.gif"
+    }
 }

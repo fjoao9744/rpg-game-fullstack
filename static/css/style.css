@@ -55,7 +55,8 @@ main {
     position: absolute;
     bottom: 0;
     height: 95%;
-    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .atack-animation__area {
@@ -165,6 +166,9 @@ footer {
         box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
+    #monster__image {
+        width: 95%;
+    }
 
 } 
 
