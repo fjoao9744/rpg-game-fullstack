@@ -1,6 +1,6 @@
 {
     "slime": {
-        "name": "slime",
+        "name": "slime green",
         "level": 1,
         "score": 20,
         "exp":10,
@@ -12,57 +12,63 @@
                 "message": "O slide te ataca!"
             }
         },
-        "def": 0,
-        "speed": 1
+        "def": [0, 0],
+        "speed": 1,
+        "image": "../media/sprites/monsters/slime green.gif"
     },
-    "gnull": {
-        "name": "gnull",
+    "goblin": {
+        "name": "goblin",
         "level": 1,
-        "score": 45,
-        "exp":25,
+        "score": 25,
+        "exp":15,
         "hp": 40,
         "atk": 5,
         "skills": {
             "golpe de machado" : {
                 "damage": [5, 10],
-                "message": "O gnull te ataca com o machado"
+                "message": "O goblin te ataca com o machado"
             }
         },
-        "def": 5,
-        "speed": 5
-    }, //
-    "gargula": {
+        "def": [0, 2],
+        "speed": 5,
+        "image": "../media/sprites/monsters/goblin.gif"
+    },
+    "orc": {
         "name": "orc",
         "level": 1,
-        "score": 20,
-        "exp":10,
-        "hp": 20,
-        "atk": 2,
+        "score": 40,
+        "exp":30,
+        "hp": 65,
+        "atk": 10,
         "skills": {
+            "golpe de machado" : {
+                "damage": [5, 10],
+                "message": "O orc te ataca com o machado"
+            },
             "bater": {
-                "damage": 1,
-                "chance": 100,
-                "effects": 0
+                "damage": [2, 5],
+                "message": "O orc te ataca!"
             }
         },
-        "def": 0,
-        "speed": 1
+        "def": [2, 5],
+        "speed": 10,
+        "image": "../media/sprites/monsters/orc.gif"
     },
-    "dragon": {
-        "name": "dragon",
-        "level": 1,
-        "score": 20,
-        "exp":10,
-        "hp": 20,
-        "atk": 2,
+    "bat": {
+        "name": "bat",
+        "level": 2,
+        "score": 40,
+        "exp":25,
+        "hp": 55,
+        "atk": 10,
         "skills": {
-            "bater": {
-                "damage": 1,
-                "chance": 100,
-                "effects": 0
+            "mordida" : {
+                "damage": [2, 10],
+                "message": "O morcego te morde!"
             }
         },
-        "def": 0,
-        "speed": 1
-    }
+        "def": [3, 4],
+        "speed": 20,
+        "image": "../media/sprites/monsters/bat.gif"
+    },
 }
