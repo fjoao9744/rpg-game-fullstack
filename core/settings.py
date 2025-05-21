@@ -11,12 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
     'localhost',
-    'rpg-game-fullstack.onrender.com',
+    'infinity-dungeon.com.br',
     'rpg-game-fullstack-production.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rpg-game-fullstack.onrender.com",
+    'https://infinity-dungeon.com.br',
     "https://rpg-game-fullstack-production.up.railway.app"
 ]
 
@@ -82,6 +82,8 @@ if IS_PRODUCTION:
     }
     DEBUG = True
     STATIC_URL = '/static/'
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     
 else:
     DATABASES = {
