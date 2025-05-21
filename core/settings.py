@@ -11,11 +11,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
     'localhost',
+    'www.infinity-dungeon.com.br',
     'infinity-dungeon.com.br',
     'rpg-game-fullstack-production.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://www.infinity-dungeon.com.br',
     'https://infinity-dungeon.com.br',
     "https://rpg-game-fullstack-production.up.railway.app"
 ]
