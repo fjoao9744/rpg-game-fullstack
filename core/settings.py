@@ -85,6 +85,9 @@ if IS_PRODUCTION:
     DEBUG = True
     STATIC_URL = '/static/'
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True  # força redirecionamento HTTP -> HTTPS
+    SESSION_COOKIE_SECURE = True  # cookies só via HTTPS
+    CSRF_COOKIE_SECURE = True     # cookie CSRF só via HTTPS
 
     
 else:
