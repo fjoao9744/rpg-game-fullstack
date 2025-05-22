@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
@@ -61,14 +62,15 @@ main {
 
 .atack-animation__area {
     position: relative;
-    width: 150%;
-    height: 150%;
+    width: 100%;
+    height: 100%;
     left: 50%;
-    top: -50%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    pointer-events: none;
 }
 
 footer {
@@ -167,7 +169,8 @@ footer {
     }
 
     #monster__image {
-        width: 95%;
+        min-width: 50%;
+        max-width: 95%;
     }
 
 } 
