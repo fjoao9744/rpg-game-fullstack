@@ -1,0 +1,7 @@
+// function damageCalculate() {
+
+// }
+
+// function damageLetterAnimate {
+
+// }

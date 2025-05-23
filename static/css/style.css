@@ -8,9 +8,13 @@
 body {
     background-color: black;
     color: white;
-
     width: 100svw;
     height: 100svh;
+    background-image: url("https://cdn.discordapp.com/attachments/680166951833829414/1375159314100256959/image-removebg-preview_2_scaled_4x_pngcrushed.png?ex=6830ac69&is=682f5ae9&hm=7e4073c550c1f0b8330f1aacac04cf76dbfdd28eb80e72d62b891a4a9cca831e&");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: rotation 4.5s ease-in-out infinite;
 }
 
 #root {
@@ -39,34 +43,48 @@ main {
     justify-content: space-around;
     flex-flow: column nowrap;
     text-align: center;
-    gap: 10%;
+    gap: 5%;
     flex: 1;
 }
 
+main > #monster-header__div {
+    gap: 0;
+}
+
 .monster__area {
+    display: flex;
     position: relative;
-    width: 300px;
-    height: 300px;
-    border: 2px dashed white;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 343px;
     display: flex;
     flex-direction: column;
+    background-image: url("../media/backgrounds/simple.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    border: 2px solid gray;
+}
+
+#monster-header__div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #monster__image {
-    position: absolute;
-    bottom: 0;
-    height: 95%;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 30%;
 }
 
 .atack-animation__area {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -83,6 +101,11 @@ footer {
     gap: 15px;
     padding: 11px;
     width: 100%;
+    pointer-events: none;
+}
+
+footer > div {
+    pointer-events: all;
 }
 
 .stats-player__area {
@@ -108,8 +131,7 @@ footer {
     align-items: center;
     justify-content: space-between;
 
-    max-width: 100%;
-    min-width: 90%;
+    width: 100%;
     padding: 10px;
     background-color: blue;
     border-radius: 10px;
@@ -147,11 +169,14 @@ footer {
         flex: 1;
     }
 
+   main > #monster-header__div {
+        display: none;
+    }
+
     .monster__area {
-        width: 300px;
+        width: 500px;
         height: 300px;
-        border: 2px dashed white;
-        border-right: 0;
+        border: 2px dashed gray;
     }
 
     .opt-player__area {
@@ -169,8 +194,10 @@ footer {
     }
 
     #monster__image {
-        min-width: 50%;
-        max-width: 95%;
+        min-width: 10%;
+        max-width: 25%;
+        min-height: 25%;
+        max-height: 35%;
     }
 
 } 
@@ -179,7 +206,7 @@ footer {
     main {
         display: flex;
         align-items: center;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         text-align: center;
         gap: 0;
@@ -192,12 +219,16 @@ footer {
         border: 2px dashed white;
         border-right: 0;
     }
+
+    #monster__image {
+    min-width: 19%;
+    max-width: 44%;
+    height: 30%;
+    scale: 1.5;
+}
     
     .opt-player__area {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-    
         width: 10%;
         max-width: 100px;
         min-width: 100px;
@@ -206,6 +237,11 @@ footer {
         background-color: blue;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        flex-wrap: nowrap;
+        align-content: space-between;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
     }
 
     .options {
@@ -223,7 +259,6 @@ footer {
         color: black;
         cursor: pointer;
         transition: background-color .4s ease;
-    
     }
 }
 
@@ -253,3 +288,13 @@ footer {
   transform: translateY(-10px);
   pointer-events: none;
 }
+
+/* @keyframes rotation {
+    0%, 100% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+} */

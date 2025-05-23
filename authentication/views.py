@@ -2,43 +2,50 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+from . import forms
 
 def login_view(request):
     if request.method == "GET":
-        return render(request, "auth/login_page.html")
+        form = forms.LoginUser()
+        return render(request, "auth/login_page.html", {"form":form})
     
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        
-        user = authenticate(username=username, password=password)
-        
-        if not user:
-            messages.error(request, "Usuário ou senha incorretos.")
-            return render(request, "auth/login_page.html")
-        
-        login(request, user)
-        
-        messages.success(request, "Sucesso! usuario conectado.")
-        return redirect("main")
+        form = forms.LoginUser(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            user = authenticate(username=username, password=password)
+            
+            if not user:
+                messages.error(request, "Usuário ou senha incorretos.")
+                return render(request, "auth/login_page.html", {"form":form})
+            
+            login(request, user)
+            
+            messages.success(request, "Sucesso! usuario conectado.")
+            return redirect("main")
         
 def register_view(request):
     if request.method == "GET":
-        return render(request, "auth/register_page.html")
+        form = forms.RegisterUser()
+        return render(request, "auth/register_page.html", {"form":form})
     
     if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-                
-        if User.objects.filter(username=username).exists():
-            return render_message(request, "auth/register_page.html", "Ja existe um usuario com esse nome!")
+        form = forms.RegisterUser(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            
+            if User.objects.filter(username=username).exists():
+                return render_message(request, "auth/register_page.html", "Ja existe um usuario com esse nome!")
 
-        if  User.objects.filter(email=email).exists():
-            return render_message(request, "auth/register_page.html", "Ja existe um usuario com esse email!")
-        
-        messages.success(request, "Sucesso! Usuario criado com sucesso.")
-        User.objects.create_user(username=username, email=email, password=password)
+            if User.objects.filter(email=email).exists():
+                return render_message(request, "auth/register_page.html", "Ja existe um usuario com esse email!")
+            
+            messages.success(request, "Sucesso! Usuario criado com sucesso.")
+            User.objects.create_user(username=username, email=email, password=password)
         
         return redirect("login")
 

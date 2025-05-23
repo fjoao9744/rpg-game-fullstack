@@ -21,19 +21,19 @@
     {% endif %}
     
     <div id="root">
-        <header>
-            <div class="monster__name">
-            NAME
-            </div>
-           <div class="hp__bar">
-            HP__BAR
-           </div>
-        </header>
         <main>
+            <div id="monster-header__div">
+                <div class="monster__name">
+                NAME
+                </div>
+                <div class="hp__bar">
+                <progress max="100" value="100" id="monster-hp__bar"></progress>
+                </div>
+            </div>
             <div class="monster__area">
                 <img src="{% static 'media/sprites/monsters/bat.gif' %}" alt="MonsterPNG" id="monster__image">
                 <div class="atack-animation__area">
-
+                    <p class="damage-letter">OI</p>
                 </div>
             </div>
             
@@ -84,6 +84,7 @@
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
+    <script src="{% static 'js/battle-utils.js' %}"></script>
     <script src="{% static 'js/battle.js' %}"></script>
 
 </body>

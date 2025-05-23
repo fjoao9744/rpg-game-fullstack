@@ -4,56 +4,67 @@
         "type": "none",
         "damage": [2, 5],
         "description": "um simples ataque",
-        "gif": "../media/sprites/atacks/attack basic.gif"
+        "effect": null,
+        "value": 0,
+        "gif": "static/media/sprites/atacks/attack-basic.gif"
+    },
+    "status1": {
+        "name": "defender",
+        "type": "none",
+        "damage": [0, 0],
+        "description": "você esta preparado para defender um golpe",
+        "effect": "defense",
+        "value": 10,
+        "gif": "../media/sprites/atacks/attack-basic.gif"
     },
     "attack2" : {
         "name": "ataque forte",
         "type": "none",
         "damage": [4, 8],
         "description": "um golpe poderoso",
-        "gif": "../media/sprites/atacks/attack basic.gif"
+        "gif": "../media/sprites/atacks/attack-basic.gif"
     },
     "magic1" : {
         "name": "bola de fogo",
         "type": "fire",
         "damage": [5, 15],
         "description": "uma poderosa bola de fogo",
-        "gif": "../media/sprites/atacks/flame.gif"
+        "gif": "static/media/sprites/atacks/flame.gif"
     },
     "magic2" : {
         "name": "martelo magico",
         "type": "fire",
         "damage": [10, 15],
         "description": "um martelo de fogo é criado e desfere um forte ataque no inimigo",
-        "gif": "../media/sprites/atacks/hammer flame.gif"
+        "gif": "../media/sprites/atacks/hammer-flame.gif"
     },
     "summon1" : {
         "name": "morcego negro",
         "type": "dark",
         "damage": [8, 18],
         "description": "um morcego feito de magia negra é lançado invocado contra o inimigo",
-        "gif": "../media/sprites/atacks/bat.gif"
+        "gif": "static/media/sprites/atacks/bat.gif"
     },
     "magic3" : {
         "name": "fogo sangrento",
         "type": "blood",
         "damage": [5, 20],
         "description": "um fogo vermelho é gerado na superficie do inimigo",
-        "gif": "../media/sprites/atacks/blood atack.gif"
+        "gif": "../media/sprites/atacks/blood-atack.gif"
     },
     "magic4" : {
         "name": "bola de fogo 2",
         "type": "fire",
         "damage": [10, 20],
         "description": "uma bola de fogo poderosa é dispara contra o inimigo",
-        "gif": "../media/sprites/atacks/blue flames.gif"
+        "gif": "../media/sprites/atacks/blue-flames.gif"
     },
     "summon2" : {
         "name": "borboleta magica",
         "type": "life",
         "damage": [1, 50],
         "description": "cria uma borboleta de mana gigante que ataca o inimigo",
-        "gif": "../media/sprites/atacks/butterfly.gif"
+        "gif": "static/media/sprites/atacks/butterfly.gif"
     },
     "magic5" : {
         "name": "explosão eletrica",
@@ -132,7 +143,7 @@
         "description": "desfere varias magias contra o inimigo",
         "gif": "../media/sprites/atacks/multi atacks.gif"
     },
-    "atack4" : {
+    "attack4" : {
         "name": "cortes negros",
         "type": "dark",
         "damage": [25, 40],
