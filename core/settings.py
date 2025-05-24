@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'main',
-    'authentication'
+    'authentication',
+    'battle'
 ]
 
 MIDDLEWARE = [

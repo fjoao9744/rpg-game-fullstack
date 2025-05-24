@@ -1,5 +1,5 @@
 {
-    "andar1" : {
+    "andar 1" : {
         "background" : "../media/backgrounds/simple.png",
         "monsters" : [
             {"slime": 60},
@@ -7,7 +7,7 @@
             {"orc": 10}
         ]
     },
-    "andar2" : {
+    "andar 2" : {
         "background" : "../media/backgrounds/simple.png",
         "monsters" : [
             {"slime": 20},

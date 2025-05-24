@@ -14,7 +14,7 @@
         },
         "def": [0, 0],
         "speed": 1,
-        "image": "../media/sprites/monsters/slime green.gif"
+        "image": "static/media/sprites/monsters/slime_green.gif"
     },
     "goblin": {
         "name": "goblin",
@@ -31,7 +31,7 @@
         },
         "def": [0, 2],
         "speed": 5,
-        "image": "../media/sprites/monsters/goblin.gif"
+        "image": "static/media/sprites/monsters/goblin.gif"
     },
     "orc": {
         "name": "orc",
@@ -52,7 +52,7 @@
         },
         "def": [2, 5],
         "speed": 10,
-        "image": "../media/sprites/monsters/orc.gif"
+        "image": "static/media/sprites/monsters/orc.gif"
     },
     "bat": {
         "name": "morcego gigante",
@@ -69,7 +69,7 @@
         },
         "def": [3, 4],
         "speed": 20,
-        "image": "../media/sprites/monsters/bat.gif"
+        "image": "static/media/sprites/monsters/bat.gif"
     },
     "kobold": {
         "name": "kobold",
@@ -86,7 +86,7 @@
         },
         "def": [0, 10],
         "speed": 30,
-        "image": "../media/sprites/monsters/kobold.gif"
+        "image": "static/media/sprites/monsters/kobold.gif"
     },
     "esqueleton": {
         "name": "esqueleto",
@@ -103,7 +103,7 @@
         },
         "def": [10, 15],
         "speed": 15,
-        "image": "../media/sprites/monsters/esqueleton.gif"
+        "image": "static/media/sprites/monsters/esqueleton.gif"
     },
     "slime2": {
         "name": "slime verde",
@@ -120,7 +120,7 @@
         },
         "def": [0, 0],
         "speed": 2,
-        "image": "../media/sprites/monsters/slime green.gif"
+        "image": "static/media/sprites/monsters/slime green.gif"
     },
     "goblin(rare)": {
         "name": "goblin",
@@ -141,6 +141,6 @@
         },
         "def": [0, 2],
         "speed": 5,
-        "image": "../media/sprites/monsters/goblin rare.gif"
+        "image": "static/media/sprites/monsters/goblin_rare.gif"
     }
 }
