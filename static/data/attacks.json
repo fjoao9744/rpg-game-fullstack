@@ -6,7 +6,7 @@
         "description": "um simples ataque",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/attack-basic.gif"
+        "gif": "static/media/sprites/atacks/attack_basic.gif"
     },
     "status1": {
         "name": "defender",
@@ -15,7 +15,7 @@
         "description": "você esta preparado para defender um golpe",
         "effect": "defense",
         "value": 10,
-        "gif": "static/media/sprites/atacks/attack-basic.gif"
+        "gif": "static/media/sprites/atacks/attack_basic.gif"
     },
     "attack2" : {
         "name": "ataque forte",
@@ -24,7 +24,7 @@
         "description": "um golpe poderoso",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/attack-basic.gif"
+        "gif": "static/media/sprites/atacks/attack_basic.gif"
     },
     "magic1" : {
         "name": "bola de fogo",

@@ -14,7 +14,7 @@ def default_skills():
             "description": "um simples ataque",
             "effect": None,
             "value": 0,
-            "gif": "static/media/sprites/atacks/attack-basic.gif"
+            "gif": "static/media/sprites/atacks/attack_basic.gif"
         },
         "status1": {
             "name": "defender",
@@ -23,17 +23,16 @@ def default_skills():
             "description": "você esta preparado para defender um golpe",
             "effect": "defense",
             "value": 10,
-            "gif": "static/media/sprites/atacks/attack-basic.gif"
+            "gif": "static/media/sprites/atacks/attack_basic.gif"
         }
     }
-
-skills = models.JSONField(default=default_skills)
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='player', null=False, blank=True)
     kill = models.IntegerField(default=0)
     score = models.IntegerField(default=0)
     level = models.IntegerField(default=1)
+    andar = models.IntegerField(default=1)
     exp = models.IntegerField(default=0)
     gold = models.IntegerField(default=0)
     hp = models.IntegerField(default=20)
@@ -41,6 +40,7 @@ class Player(models.Model):
     skills = models.JSONField(default=default_skills)
     inventory = models.JSONField(default=dict)
     achievements = models.JSONField(default=dict)
+    monster = models.JSONField(default=dict)
     defe = models.IntegerField(default=0)
     speed = models.IntegerField(default=1)
 

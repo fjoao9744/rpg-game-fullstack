@@ -59,7 +59,7 @@ window.onload = async () => {
                         const responseTwo = await fetch("static/data/attacks.json");
                         const Attacks = await responseTwo.json()
 
-                        let ataqueBasico = ["static/media/sprites/atacks/slices-dark.gif"]
+                        let ataqueBasico = ["static/media/sprites/atacks/slices_dark.gif"]
                         console.log()
                         const Player__attacks = Object.values(battle__player.skills);
                         Player__attacks[2] = Attacks.summon2;

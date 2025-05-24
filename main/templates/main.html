@@ -58,12 +58,16 @@
         <footer>
             <div>
                 {% if user.is_authenticated %}
-                <div>
+                <div class="stats-player__area">
                     <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
-                </div>
-                <div>
                     <p>nome: {{ username }}</p>
+                    <div id="status__div"></div>
+
+                    <button id="show-status">...</button>
+
+
                 </div>
+
                 {% else %}
                 <div class="stats-player__area">
                     <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
@@ -81,11 +85,12 @@
     <script>
         const username = "{{ username|escapejs }}";
     </script>
+    <script src="{% static 'js/api_utils.js' %}"></script>
+    <script src="{% static 'js/player_utils.js' %}"></script>
     <script src="{% static 'js/battle_utils.js' %}"></script>
+    <script src="{% static 'js/player.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/battle.js' %}"></script>
-    <script src="{% static 'js/init.js' %}"></script>
 
 </body>
 </html>
