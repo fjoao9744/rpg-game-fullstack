@@ -14,7 +14,7 @@ def default_skills():
             "description": "um simples ataque",
             "effect": None,
             "value": 0,
-            "gif": "../media/sprites/atacks/attack-basic.gif"
+            "gif": "static/media/sprites/atacks/attack-basic.gif"
         },
         "status1": {
             "name": "defender",
@@ -23,7 +23,7 @@ def default_skills():
             "description": "você esta preparado para defender um golpe",
             "effect": "defense",
             "value": 10,
-            "gif": "../media/sprites/atacks/attack-basic.gif"
+            "gif": "static/media/sprites/atacks/attack-basic.gif"
         }
     }
 

@@ -8,7 +8,7 @@ body {
     height: 100svh;
 }
 
-div {
+#form__div {
     display: flex;
     min-width: 40%;
     max-height: 50%;
@@ -27,10 +27,6 @@ form {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-form > input {
-    width: 75%;
 }
 
 .span__area {
@@ -56,19 +52,25 @@ form button {
     cursor: pointer;
 }
 
-input {
-    display: block;
-    width: 50%;
-    height: 20%;
+form button:hover {
+    background-color: #3d75b4;
+
+}
+
+form input {
+    width: 75%;
     padding: 1rem 0.75rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     background: transparent;
     font-size: 1rem;
     outline: none;
-    transition: 0.3s;
 }
 
 label {
     color: black;
+}
+
+.form-error {
+    color: red;
 }

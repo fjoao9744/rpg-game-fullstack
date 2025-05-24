@@ -37,7 +37,6 @@ window.onload = async () => {
                 'translateX(5%)', 
                 'translateX(-5%)', 
                 'translateX(0)'] 
-
   },
   { 
     duration: 300, 
@@ -45,7 +44,6 @@ window.onload = async () => {
         )
 
     }
-
 
     opt__manager.forEach((opt) => {
         opt.addEventListener('click', async (event) => {
@@ -111,9 +109,9 @@ window.onload = async () => {
                     document.getElementById(idTarget).animate(
                         [
                             {offset: 0, transform: "translate(0, 0)"},
-                            {offset: 1, transform: "translate(200px, -200px)"},
+                            {offset: 1, transform: "translate(1000px, 0px)"},
                         ], {
-                            duration: 3000,
+                            duration: 5000,
                         }
                     );
                     break;

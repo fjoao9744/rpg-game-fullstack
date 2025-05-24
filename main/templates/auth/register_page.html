@@ -21,24 +21,47 @@
 
     <button><a href="{% url 'main' %}">voltar</a></button>
 
-    <div>
+    <div id="form__div">
         <form action="{% url 'register' %}" method="POST"> {% csrf_token %}
             {{ form.username.label_tag }}
             {{ form.username }} <!-- input id: "username__input"-->
-            {{ form.username.errors }}
+            {% if form.username.errors %}
+            <div class="form-error">
+                {% for error in form.username.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             {{ form.email.label_tag }}
             {{ form.email }} <!-- input id: "email__input"-->
-            {{ form.email.errors }}
+            {% if form.email.errors %}
+            <div class="form-error">
+                {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             {{ form.password.label_tag }}
             {{ form.password }} <!-- label id: "password__input"-->
-            {{ form.password.errors }}
+            {% if form.password.errors %}
+            <div class="form-error">
+                {% for error in form.password.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             {{ form.confirm_password.label_tag }}
             {{ form.confirm_password }} <!-- label id: "password_confirm__input"-->
-            {{ form.confirm_password.errors }}
-            
+            {% if form.confirm_password.errors %}
+            <div class="form-error">
+                {% for error in form.confirm_password.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
             
             <button type="submit">Cadastrar</button>
         </form>

@@ -1,0 +1,23 @@
+{
+    "andar1" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"slime": 60},
+            {"goblin": 30},
+            {"orc": 10}
+        ]
+    },
+    "andar2" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"slime": 20},
+            {"goblin": 45},
+            {"orc": 20},
+            {"morcego": 10},
+            {"kobold": 5}
+        ]
+    }
+}
+
+
+
