@@ -1,3 +1,6 @@
+(async () => {
+  monsterGen()
+})()
 
 // DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {

@@ -37,18 +37,18 @@ window.onload = async () => {
                 'translateX(5%)', 
                 'translateX(-5%)', 
                 'translateX(0)'] 
-  },
-  { 
-    duration: 300, 
-  easing: 'ease-in-out' }
-        )
+            },
+            { 
+                duration: 300, 
+                easing: 'ease-in-out' 
+            }
+    )
 
     }
 
     opt__manager.forEach((opt) => {
         opt.addEventListener('click', async (event) => {
             const idTarget = event.currentTarget.id;
-            
 
             switch (idTarget) {
                 case "fight_option": 
@@ -63,6 +63,7 @@ window.onload = async () => {
                         console.log()
                         const Player__attacks = Object.values(battle__player.skills);
                         Player__attacks[2] = Attacks.summon2;
+                        Player__attacks[3] = Attacks.attack4;
 
                         for (let x = 0; x < Player__attacks.length; x++) {
                             let ataque = document.createElement("button");
@@ -85,6 +86,11 @@ window.onload = async () => {
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
                                 });
+                                // teste
+                                console.log("atk", Player__attacks[x]);
+                                playerAttack(Player__attacks[x]);
+                                monsterAttack();
+
                             });
 
                             opt__area.appendChild(ataque);

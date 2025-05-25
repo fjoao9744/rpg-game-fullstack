@@ -1,22 +1,22 @@
-let player = "";
 
-(async () => {if (username) {
-      console.log("Usuário logado:", username);
+async function playerAttack(attack) {
+    let attackDamage = intervalCalculate(attack.damage);
+    
+    let realDamage = Math.max(attackDamage - intervalCalculate(monster.defe), 1);
+    
+    console.log(`${username} usou ${attack.name} e deu ${realDamage}`);
 
-      for (let i = 0; i< 10; i++) {
-            monstro = await fetch(`${BASE_URL}/battle/monster/1`).then(response => response.json())
-            console.log(monstro)
-      }
+    monster.hp -= realDamage;
 
-      player = await getPlayer();
-      localStorage.setItem("player", JSON.stringify(player)) // pega o usuario e manda para o localstorage
-      console.log(player)
-      console.log("player criado no localstorage")
+    document.getElementById("monster-hp__bar").value = monster.hp;
+    document.querySelectorAll(".damage-letter")[0].innerHTML = realDamage;
 
-      if (player) { createStatus() }
+    if (monster.hp <= 0) {
+        monsterDead();
+    }
 
+}
 
-} else {
-      player = {}
-}})();
-
+async function gameOver() {
+    console.log("você morreu!")
+}

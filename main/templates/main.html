@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="monster__area">
-                <img src="{% static 'media/sprites/monsters/bat.gif' %}" alt="MonsterPNG" id="monster__image">
+                <img alt="MonsterPNG" id="monster__image">
                 <div class="atack-animation__area">
                     <p class="damage-letter">OI</p>
                 </div>
@@ -85,12 +85,16 @@
     <script>
         const username = "{{ username|escapejs }}";
     </script>
-    <script src="{% static 'js/api_utils.js' %}"></script>
-    <script src="{% static 'js/player_utils.js' %}"></script>
-    <script src="{% static 'js/battle_utils.js' %}"></script>
-    <script src="{% static 'js/player.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/battle.js' %}"></script>
+    <script src="{% static 'js/api_utils.js' %}"></script> <!-- api -->
+    <script src="{% static 'js/player_utils.js' %}"></script> <!-- visuais do jogador -->
+    <script src="{% static 'js/player_init.js' %}"></script> <!-- inicia o jogador -->
+    <script src="{% static 'js/battle_utils.js' %}"></script> <!-- funções de batalha -->
+    <script src="{% static 'js/monster.js' %}"></script> <!-- funções dos monstros -->
+    <script src="{% static 'js/player.js' %}"></script> <!-- funções do player -->
+    <script src="{% static 'js/battle.js' %}"></script> <!-- logica de batlha -->
+    <script src="{% static 'js/script.js' %}"></script> <!-- debug, testes e extras -->
+    <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
+
 
 </body>
 </html>

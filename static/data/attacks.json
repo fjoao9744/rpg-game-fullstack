@@ -42,7 +42,7 @@
         "description": "um martelo de fogo é criado e desfere um forte ataque no inimigo",
         "effect": "slow",
         "value": 5,
-        "gif": "static/media/sprites/atacks/hammer-flame.gif"
+        "gif": "static/media/sprites/atacks/hammer_flame.gif"
     },
     "summon1" : {
         "name": "morcego negro",
@@ -60,7 +60,7 @@
         "description": "um fogo vermelho é gerado na superficie do inimigo",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/blood-atack.gif"
+        "gif": "static/media/sprites/atacks/blood_atack.gif"
     },
     "magic4" : {
         "name": "bola de fogo 2",
@@ -69,7 +69,7 @@
         "description": "uma bola de fogo poderosa é dispara contra o inimigo",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/blue-flames.gif"
+        "gif": "static/media/sprites/atacks/blue_flames.gif"
     },
     "summon2" : {
         "name": "borboleta magica",
@@ -87,7 +87,7 @@
         "description": "uma bola de fogo poderosa é dispara contra o inimigo",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/electric power.gif"
+        "gif": "static/media/sprites/atacks/electric_power.gif"
     },
     "magic6" : {
         "name": "explosão",
@@ -114,7 +114,7 @@
         "description": "uma grande e poderosa bola de fogo",
         "effect": "burn",
         "value": 1,
-        "gif": "static/media/sprites/atacks/fire ball.gif"
+        "gif": "static/media/sprites/atacks/fire_ball.gif"
     },
     "attack3" : {
         "name": "golpe gelido",
@@ -177,7 +177,7 @@
         "description": "desfere varias magias contra o inimigo",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/multi atacks.gif"
+        "gif": "static/media/sprites/atacks/multi_atacks.gif"
     },
     "attack4" : {
         "name": "cortes negros",
@@ -186,6 +186,6 @@
         "description": "desfere varios cortes negros",
         "effect": null,
         "value": 0,
-        "gif": "static/media/sprites/atacks/slices dark.gif"
+        "gif": "static/media/sprites/atacks/slices_dark.gif"
     }
 }

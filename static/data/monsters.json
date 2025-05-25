@@ -12,7 +12,7 @@
                 "message": "O slime te ataca!"
             }
         },
-        "def": [0, 0],
+        "defe": [0, 0],
         "speed": 1,
         "image": "static/media/sprites/monsters/slime_green.gif"
     },
@@ -29,7 +29,7 @@
                 "message": "O goblin te ataca com o machado"
             }
         },
-        "def": [0, 2],
+        "defe": [0, 2],
         "speed": 5,
         "image": "static/media/sprites/monsters/goblin.gif"
     },
@@ -50,7 +50,7 @@
                 "message": "O orc te ataca!"
             }
         },
-        "def": [2, 5],
+        "defe": [2, 5],
         "speed": 10,
         "image": "static/media/sprites/monsters/orc.gif"
     },
@@ -67,7 +67,7 @@
                 "message": "O morcego te morde!"
             }
         },
-        "def": [3, 4],
+        "defe": [3, 4],
         "speed": 20,
         "image": "static/media/sprites/monsters/bat.gif"
     },
@@ -84,7 +84,7 @@
                 "message": "kobold te acerta com uma espadada"
             }
         },
-        "def": [0, 10],
+        "defe": [0, 10],
         "speed": 30,
         "image": "static/media/sprites/monsters/kobold.gif"
     },
@@ -101,7 +101,7 @@
                 "message": "esqueleto te acerta com uma espadada"
             }
         },
-        "def": [10, 15],
+        "defe": [10, 15],
         "speed": 15,
         "image": "static/media/sprites/monsters/esqueleton.gif"
     },
@@ -118,7 +118,7 @@
                 "message": "O slime te ataca!"
             }
         },
-        "def": [0, 0],
+        "defe": [0, 0],
         "speed": 2,
         "image": "static/media/sprites/monsters/slime green.gif"
     },
@@ -139,7 +139,7 @@
                 "message": "O goblin desfere um poderoso corte que incendeia as paredes da dungeon"
             }
         },
-        "def": [0, 2],
+        "defe": [0, 2],
         "speed": 5,
         "image": "static/media/sprites/monsters/goblin_rare.gif"
     }

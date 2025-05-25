@@ -1,11 +1,10 @@
 let status_player_div = document.getElementById("status__div");
+let showAll = false;
 
 function createStatus() {
-    let showAll = false;
 
     let scoreTag = document.createElement("p");
     scoreTag.innerHTML = `score: ${player.score}`;
-    scoreTag.style.display = "none";
     scoreTag.style.color = "grey"
     status_player_div.appendChild(scoreTag);
 
@@ -19,20 +18,17 @@ function createStatus() {
     
     let expTag = document.createElement("p");
     expTag.innerHTML = `exp: ${player.exp}`;
-    expTag.style.display = "none";
     expTag.style.color = "grey"
     status_player_div.appendChild(expTag);
     
     let killTag = document.createElement("p");
     killTag.innerHTML = `kills: ${player.kill}`;
-    killTag.style.display = "none";
     killTag.style.color = "grey"
     status_player_div.appendChild(killTag);
     
     let goldTag = document.createElement("p");
     goldTag.innerHTML = `gold: ${player.gold}`;
     status_player_div.appendChild(goldTag);
-    
     
     let attackTag = document.createElement("p");
     attackTag.innerHTML = `ataque: ${player.atk}`;
@@ -45,18 +41,25 @@ function createStatus() {
     let speedTag = document.createElement("p");
     speedTag.innerHTML = `velocidade: ${player.speed}`;
     status_player_div.appendChild(speedTag);
-
-    document.getElementById("show-status").onclick = () => {
-        if (showAll) {
+    
+    if (!showAll) {
         scoreTag.style.display = "none";
         killTag.style.display = "none";
         expTag.style.display = "none";
-        showAll = false
+        
+    }
+
+    document.getElementById("show-status").onclick = () => {
+        if (showAll) {
+            scoreTag.style.display = "none";
+            killTag.style.display = "none";
+            expTag.style.display = "none";
+            showAll = false
         } else {
-        scoreTag.style.display = "block";
-        killTag.style.display = "block";
-        expTag.style.display = "block";
-        showAll = true
+            scoreTag.style.display = "block";
+            killTag.style.display = "block";
+            expTag.style.display = "block";
+            showAll = true
         }
     }
 }
