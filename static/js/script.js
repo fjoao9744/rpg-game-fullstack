@@ -1,5 +1,22 @@
 (async () => {
-  monsterGen()
+  let player = await Player();
+  await sendLog("Bem vindo jogador!")
+
+  if (!player.monster.name) { // se não tiver em batalha
+    await sendButton("ANDAR", async () => {
+        let monster = await monsterGen();
+        if (!monster) {
+          sendLog("Você não achou nada!")
+          return
+        }
+        player.andar += 0.1;
+        await SavePlayer(player);
+        updateStatus();
+        
+        battle(monster)
+    })
+  }
+  
 })()
 
 // DJANGO MESSAGES

@@ -1,7 +1,12 @@
 let status_player_div = document.getElementById("status__div");
 let showAll = false;
 
-function createStatus() {
+async function createStatus() {
+    let player = await Player()
+
+    let floorTag = document.createElement("p");
+    floorTag.innerHTML = `andar: ${player.andar}`;
+    status_player_div.appendChild(floorTag);
 
     let scoreTag = document.createElement("p");
     scoreTag.innerHTML = `score: ${player.score}`;
@@ -46,7 +51,6 @@ function createStatus() {
         scoreTag.style.display = "none";
         killTag.style.display = "none";
         expTag.style.display = "none";
-        
     }
 
     document.getElementById("show-status").onclick = () => {
@@ -63,3 +67,21 @@ function createStatus() {
         }
     }
 }
+
+async function updateStatus() {
+    while (status_player_div.firstChild) {
+        status_player_div.removeChild(status_player_div.firstChild);
+    }
+
+    createStatus();
+}
+
+
+async function Player() {
+    return JSON.parse(localStorage.getItem("player"))
+}
+
+async function SavePlayer(player) {
+    localStorage.setItem("player", JSON.stringify(player))
+}
+

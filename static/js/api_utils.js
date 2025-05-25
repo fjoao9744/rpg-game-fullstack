@@ -37,7 +37,7 @@ async function createPlayer() { // cria um usuario do 0
 }
 
 async function updatePlayer() { // atualiza o player no banco e no localstorage
-    localStorage.setItem("player", JSON.stringify(player))
+    player = await Player();
     let response = await fetch(`${BASE_URL}/api/`, {
         method: "PUT",
         headers: { "Content-Type": "application/json"},

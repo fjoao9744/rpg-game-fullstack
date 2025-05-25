@@ -3,49 +3,35 @@ let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
 
 window.onload = async () => {
-    let battleStart = true;
-    battle__player = JSON.parse(localStorage.getItem("player"))
+    let player = await Player()
 
-    if (battleStart) {
-
-        // let monster__response = await fetch("static/data/monsters.json");
-        // let monsters1 = monster__response.json()
-        // let monsters2 = monsters1.filter(monster => monster === 1)
-        // console.log(monsters1)
-
-        let geralAnimation = document.querySelector("#monster__image").animate(
-            [
-                {offset: 0, transform: "translateX(0)"},
-                {offset: .2, transform: "translate(-5px)"},
-                {offset: .4, transform: "translate(5px)"},
-                {offset: .6, transform: "translate(-5px)"},
-                {offset: .8, transform: "translate(5px)"},
-                {offset: 1, tramsform: "translate(0)"}
-            ],
-            {
-                duration: 10000,
-                iterations: Infinity,
-                easing: 'ease'
-            }
-        )
-
-    function damageAnimate() {
-        document.querySelector("#monster__image").animate(
-            { transform: ['translateX(0)', 
-                'translateX(5%)', 
-                'translateX(-5%)', 
-                'translateX(5%)', 
-                'translateX(-5%)', 
-                'translateX(0)'] 
-            },
-            { 
-                duration: 300, 
-                easing: 'ease-in-out' 
-            }
-    )
-
+    if (player.monster.name) {
+        battle(player.monster);
     }
+    
+};
 
+async function battle(monster) {
+    // registrando batalha
+    let player = await Player();
+    player.monster = monster;
+    await SavePlayer(player);
+    await updatePlayer();
+
+    console.log(monster);
+
+    document.getElementById("monster-hp__bar").value = monster.hp
+    document.getElementById("monster-hp__bar").max = monster.hp
+
+    document.getElementById("monster__image").src = monster.image;
+    document.querySelectorAll(".monster__name")[0].innerHTML = monster.name.toUpperCase();
+    
+    document.getElementById("monster__image").style.display = "block";
+    sendLog(`${monster.name} apareceu`)
+
+    // batalha
+    monsterAnimation();
+    
     opt__manager.forEach((opt) => {
         opt.addEventListener('click', async (event) => {
             const idTarget = event.currentTarget.id;
@@ -60,8 +46,7 @@ window.onload = async () => {
                         const Attacks = await responseTwo.json()
 
                         let ataqueBasico = ["static/media/sprites/atacks/slices_dark.gif"]
-                        console.log()
-                        const Player__attacks = Object.values(battle__player.skills);
+                        const Player__attacks = Object.values(player.skills);
                         Player__attacks[2] = Attacks.summon2;
                         Player__attacks[3] = Attacks.attack4;
 
@@ -87,9 +72,14 @@ window.onload = async () => {
                                     opt__area.appendChild(opt);
                                 });
                                 // teste
-                                console.log("atk", Player__attacks[x]);
+                                SavePlayer(player)
+                                // if (player.hp > 0) {
                                 playerAttack(Player__attacks[x]);
-                                monsterAttack();
+                                    // }
+                                if (monster.hp > 0) {
+                                    monsterAttack();
+                                }
+                                    
 
                             });
 
@@ -124,6 +114,4 @@ window.onload = async () => {
             }
         });
     });
-    }
-
-};
+}

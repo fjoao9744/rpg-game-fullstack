@@ -1,22 +1,18 @@
-let monster = null
-
 async function monsterGen() {
-    let andar = JSON.parse(localStorage.getItem("player")).andar
-    monster = await fetch(`${BASE_URL}/battle/monster/${andar}`).then(response => response.json())
-    document.getElementById("monster-hp__bar").value = monster.hp
-    document.getElementById("monster-hp__bar").max = monster.hp
+    let player = await Player();
+    
+    let monster = await fetch(`${BASE_URL}/battle/monster/${Math.floor(player.andar)}`).then(response => response.json());
 
-    document.getElementById("monster__image").src = monster.image;
-    document.querySelectorAll(".monster__name")[0].innerHTML = monster.name.toUpperCase();
-
-    console.log(monster);
-    console.log(`${monster.name} apareceu`);
+    return monster
 }
 
 async function monsterAttack() {
+    let player = await Player();
+
     // pegar o ataque
-    let attack = attackChoice(Object.values(monster.skills));
-    console.log(attack.message);
+    console.log(player.monster.skills)
+    let attack = attackChoice(Object.values(player.monster.skills));
+    sendLog(attack.message);
     
     // calcular dano
     let attackDamage = intervalCalculate(attack.damage);
@@ -24,19 +20,14 @@ async function monsterAttack() {
     let realDamage = Math.max(attackDamage - player.defe, 1);
 
     player.hp -= realDamage;
+    await SavePlayer(player)
+    await updateStatus()
 
-    console.log(`${username} perdeu ${realDamage} de hp`);
-
-    while (status_player_div.firstChild) {
-        status_player_div.removeChild(status_player_div.firstChild);
-    }
-
-    createStatus();
+    sendLog(`${username} perdeu ${realDamage} de hp`);
 
     if (player.hp <= 0) {
-        gameOver();
+        await gameOver();
     }
-
 }
 
 function attackChoice(arr) {
@@ -45,9 +36,25 @@ function attackChoice(arr) {
 }
 
 async function monsterDead() {
-    player.score += monster.score;
-    player.exp += monster.exp;
+    let player = await Player();
+    await sendLog(`${player.monster.name} morreu`)
+    player.score += player.monster.score;
+    player.exp += player.monster.exp;
     player.kill += 1;
+    player.monster = {}
+    document.getElementById("monster__image").style.display = "none"
+    await SavePlayer(player);
+    await updateStatus();
+    await updatePlayer();
+    
+    await sendButton("ANDAR", async () => {
+        let monster = await monsterGen();
+        console.log(monster)
 
-    monsterGen()
+        player.andar += 0.1;
+        await SavePlayer(player);
+        updateStatus();
+        
+        battle(monster)
+    })
 }

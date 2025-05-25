@@ -31,6 +31,27 @@
     {% endif %}
     
     <div id="root">
+        <header>
+            <div>
+                {% if user.is_authenticated %}
+                <div class="stats-player__area">
+                    <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
+                    <p>nome: {{ username }}</p>
+                    <div id="status__div"></div>
+
+                    <button id="show-status">...</button>
+
+
+                </div>
+
+                {% else %}
+                <div class="stats-player__area">
+                    <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
+                    <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
+                </div>
+                {% endif %}
+            </div>
+        </header>
         <main>
             <div id="monster-header__div">
                 <div class="monster__name">
@@ -67,27 +88,11 @@
         </main>
         <footer>
             <div>
-                {% if user.is_authenticated %}
-                <div class="stats-player__area">
-                    <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
-                    <p>nome: {{ username }}</p>
-                    <div id="status__div"></div>
-
-                    <button id="show-status">...</button>
-
-
-                </div>
-
-                {% else %}
-                <div class="stats-player__area">
-                    <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
-                    <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
-                </div>
-                {% endif %}
+                <p>&copy; <a href="https://github.com/fjoao9744" class="copy">João F.</a> & <a href="https://github.com/HendrickReis" class="copy">Smogon</a></p>
             </div>
 
-            <div>
-                <p>&copy; <a href="https://github.com/fjoao9744">João F.</a> & <a href="https://github.com/HendrickReis">Smogon</a></p>
+            <div id="chat__div">
+                
             </div>
         </footer>
     </div>
@@ -95,14 +100,15 @@
     <script>
         const username = "{{ username|escapejs }}";
     </script>
-    <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
+    <script src="{% static 'js/utils.js' %}"></script> <!-- funções globais -->
     <script src="{% static 'js/api_utils.js' %}"></script> <!-- api -->
     <script src="{% static 'js/player_utils.js' %}"></script> <!-- visuais do jogador -->
     <script src="{% static 'js/player_init.js' %}"></script> <!-- inicia o jogador -->
+    <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
     <script src="{% static 'js/battle_utils.js' %}"></script> <!-- funções de batalha -->
     <script src="{% static 'js/monster.js' %}"></script> <!-- funções dos monstros -->
     <script src="{% static 'js/player.js' %}"></script> <!-- funções do player -->
-    <script src="{% static 'js/battle.js' %}"></script> <!-- logica de batlha -->
+    <script src="{% static 'js/battle.js' %}"></script> <!-- logica de batalha -->
     <script src="{% static 'js/script.js' %}"></script> <!-- debug, testes e extras -->
 
 

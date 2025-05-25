@@ -15,7 +15,6 @@ body {
     background-size: cover;
     background-position: center;
     animation: rotation 4.5s ease-in-out infinite;
-    overflow-y: hidden;
 
 }
 
@@ -32,9 +31,10 @@ body {
 }
 
 header {
+    position: absolute;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 20%;
 }
@@ -50,9 +50,6 @@ main {
     flex: 1;
 }
 
-main > #monster-header__div {
-    gap: 0;
-}
 
 .monster__area {
     display: flex;
@@ -80,6 +77,7 @@ main > #monster-header__div {
 }
 
 #monster__image {
+    display: none;
     height: 30%;
 }
 
@@ -111,6 +109,17 @@ footer {
 
 footer > div {
     pointer-events: all;
+}
+
+.copy {
+    color: white;
+    text-decoration: none;
+}
+.copy:hover {
+    color: blue;
+}
+.copy:visited {
+    color: white;
 }
 
 .stats-player__area {
@@ -171,6 +180,25 @@ footer > div {
     background-color: rgb(0, 0, 192);
     color: white;
 }
+
+#chat__div {
+    background-color: black;
+    width: 20%;
+    right: 0;
+    position: fixed;
+    height: 100vh;
+    margin: 1px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#chat__div > button {
+    pointer-events: all;
+
+}
+
 
 @media screen and (max-width: 1290px) and (max-height: 754px) {
 

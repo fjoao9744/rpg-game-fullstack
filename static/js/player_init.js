@@ -1,17 +1,19 @@
-let player = "";
-
 (async () => {
     if (username) {
-      console.log("Usuário logado:", username);
-    
-      player = await getPlayer();
-      localStorage.setItem("player", JSON.stringify(player)) // pega o usuario e manda para o localstorage
-      console.log(player)
-      console.log("player criado no localstorage")
+      sendLog(`usuario conectado: ${username}`);
+      let player = await Player();
+      if (!player) {
+        player = await getPlayer();
+        console.log(player);
+        await SavePlayer(player);
+        console.log("player criado no localstorage");
+      } else {
+        console.log(player);
+        console.log("player encontrado no localstorage");
+      }
+      delete player;
 
-      if (player) { createStatus() }
 
+      await createStatus();
 
-} else {
-      player = {}
 }})();

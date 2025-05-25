@@ -1,11 +1,30 @@
 async function loadingTransition() {
+  
+sendLog("loading...")
 
 function AnimateDiv() {
  const div1 = document.createElement("div")
  const div2 = document.createElement("div")
- 
-  div2.textContent = "Loading...";
-  
+
+ function loadingAnimateLoop() {
+    const states = {
+      "loading": "loading.",
+      "loading.": "loading..",
+      "loading..": "loading...",
+      "loading...": "loading"
+    };
+
+    const span = div2.querySelector(".smogon");
+    const currentText = span ? span.textContent : "loading";
+
+    const nextText = states[currentText] || "loading";
+    span.textContent = nextText;
+  }
+
+  div2.innerHTML = "<span class='smogon'>loading</span>";
+
+  setInterval(loadingAnimateLoop, 800);
+   
   div1.classList.add("transition-window__area", "transition-window__top")
   div2.classList.add("transition-window__area", "transition-window__bottom")
 
@@ -35,5 +54,37 @@ await new Promise(resolve => setTimeout(resolve, 5000))
 
 document.getElementById("root").removeChild(div1);
 document.getElementById("root").removeChild(div2);  
+}
 
+function monsterAnimation() {
+  let geralAnimation = document.querySelector("#monster__image").animate(
+    [
+        {offset: 0, transform: "translateX(0)"},
+        {offset: .2, transform: "translate(-5px)"},
+        {offset: .4, transform: "translate(5px)"},
+        {offset: .6, transform: "translate(-5px)"},
+        {offset: .8, transform: "translate(5px)"},
+        {offset: 1, tramsform: "translate(0)"}
+    ],
+    {
+        duration: 10000,
+        iterations: Infinity,
+        easing: 'ease'
+    }
+  )
+}
+function damageAnimate() {
+  document.querySelector("#monster__image").animate(
+      { transform: ['translateX(0)', 
+          'translateX(5%)', 
+          'translateX(-5%)', 
+          'translateX(5%)', 
+          'translateX(-5%)', 
+          'translateX(0)'] 
+      },
+      { 
+          duration: 300, 
+          easing: 'ease-in-out' 
+      }
+)
 }
