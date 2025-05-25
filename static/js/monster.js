@@ -7,7 +7,7 @@ async function monsterGen() {
     document.getElementById("monster-hp__bar").max = monster.hp
 
     document.getElementById("monster__image").src = monster.image;
-    document.querySelectorAll(".monster__name")[0].innerHTML = monster.name;
+    document.querySelectorAll(".monster__name")[0].innerHTML = monster.name.toUpperCase();
 
     console.log(monster);
     console.log(`${monster.name} apareceu`);

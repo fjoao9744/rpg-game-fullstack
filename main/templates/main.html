@@ -8,12 +8,21 @@
     <title>Smogon</title>
     
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
     <link rel="shortcut icon" href="{% static 'media/icons/favicon.ico' %}" type="image/x-icon">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701534999211145"
      crossorigin="anonymous"></script>
 </head>
 <body>
+    {% if not user.is_superuser %}
+        <div id="modal__"></div>
+        <div id="modal" class="stats-player__area">
+            <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
+            <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
+        </div>
+    {% endif %}
+
     {% if messages %}
         {% for message in messages %}
             <div class="django-message__div">{{ message }}</div>
@@ -85,6 +94,7 @@
     <script>
         const username = "{{ username|escapejs }}";
     </script>
+    <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
     <script src="{% static 'js/api_utils.js' %}"></script> <!-- api -->
     <script src="{% static 'js/player_utils.js' %}"></script> <!-- visuais do jogador -->
     <script src="{% static 'js/player_init.js' %}"></script> <!-- inicia o jogador -->
@@ -93,7 +103,6 @@
     <script src="{% static 'js/player.js' %}"></script> <!-- funções do player -->
     <script src="{% static 'js/battle.js' %}"></script> <!-- logica de batlha -->
     <script src="{% static 'js/script.js' %}"></script> <!-- debug, testes e extras -->
-    <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
 
 
 </body>

@@ -10,11 +10,15 @@ class RegisterUser(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
+        username = cleaned_data.get("username")
         password = cleaned_data.get("password")
         confirm_password = cleaned_data.get("confirm_password")
         
         if password != confirm_password:
             self.add_error('confirm_password', "As senhas não conferem.")
+            
+        if User.objects.filter(username=username).exists():
+            self.add_error("username", "Usuario ja existe, tente outro nome")
         
         return cleaned_data
 

@@ -13,6 +13,7 @@ async function playerAttack(attack) {
 
     if (monster.hp <= 0) {
         monsterDead();
+        await loadingTransition();
     }
 
 }
