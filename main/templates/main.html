@@ -17,7 +17,8 @@
 <body>
     {% if not user.is_superuser %}
         <div id="modal__"></div>
-        <div id="modal" class="stats-player__area">
+        <div id="modal">
+            <h1 style="color: salmon;">lançamento: 01/06/2025</h1>
             <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
             <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
         </div>
