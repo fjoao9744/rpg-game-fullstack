@@ -87,6 +87,7 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: end;
     font-size: 18px;
     
 }
@@ -199,9 +200,10 @@ footer > div {
 #chat__div {
     background-color: black;
     width: 20%;
-    right: 50;
+    padding: 20px;
+    right: 0%;
     position: fixed;
-    height: 100vh;
+    height: 100svh;
     margin: 1px;
     display: flex;
     justify-items: center;

@@ -37,9 +37,8 @@ async function battle(monster) {
                         const Attacks = await responseTwo.json()
 
                         let ataqueBasico = ["static/media/sprites/atacks/slices_dark.gif"]
-                        const Player__attacks = Object.values(player.skills);
-                        Player__attacks[2] = Attacks.summon2;
-                        Player__attacks[3] = Attacks.attack4;
+
+                        Player__attacks = Object.values(player.skills);
 
                         for (let x = 0; x < Player__attacks.length; x++) {
                             let ataque = document.createElement("button");
@@ -54,6 +53,8 @@ async function battle(monster) {
                                 attack__area.style.backgroundImage = ``
                                 await new Promise(resolve => setTimeout(resolve, 100))
                                 damageAnimate()
+                                playerAttack(Player__attacks[x]);
+                                SavePlayer(player)
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 opt__area.style.opacity = "1"
                                 opt__area.style.pointerEvents = "all"
@@ -63,9 +64,7 @@ async function battle(monster) {
                                     opt__area.appendChild(opt);
                                 });
                                 // teste
-                                SavePlayer(player)
                                 // if (player.hp > 0) {
-                                playerAttack(Player__attacks[x]);
                                     // }
                                 if (monster.hp > 0) {
                                     monsterAttack();
