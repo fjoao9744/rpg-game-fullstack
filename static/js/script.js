@@ -1,9 +1,10 @@
 window.onload = async () => {
+
     let player = await Player()
     await sendLog("Bem vindo jogador!")
 
     if (player.monster && player.monster.name) {
-        battle(player.monster);
+        await battle(player.monster);
 
     } else {
       await sendButton("ANDAR", async () => {

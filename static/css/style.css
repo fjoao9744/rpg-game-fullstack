@@ -199,7 +199,7 @@ footer > div {
 #chat__div {
     background-color: black;
     width: 20%;
-    right: 0;
+    right: 50;
     position: fixed;
     height: 100vh;
     margin: 1px;
@@ -366,13 +366,22 @@ footer > div {
 }
 
 #modal {
-    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: fixed;
+    z-index: 9999;
     padding: 20px;
     background-color: white;
+    color: salmon;
+    border: 2px solid salmon;
+    text-align: center;
+    font-size: 1.5em;
+    gap: 10px;
     border-radius: 10px;
-    height: 200px;
-    width: 300px;
+    height: 30svh;
+    width: 30svw;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     top: 50%;
     left: 50%;
