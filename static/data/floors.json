@@ -6,6 +6,11 @@
             {"goblin": 30},
             {"orc": 10}
         ],
+        "quests": [
+            {"mate 5 goblins": "0/5"},
+            {"encontre todos os monstros" : "0/3"},
+            {"suba um nivel": "0/1"}
+        ],
         "type": "battle"
     },
     "andar 2" : {
@@ -17,6 +22,11 @@
             {"bat": 10},
             {"kobold": 5}
         ],
+        "quests": [
+            {"mate 10 goblins": "0/10"},
+            {"mate 1 kobold": "0/1"},
+            {"use quatro habilidades diferentes": "0/4"}
+        ],
         "type": "battle"
     },
     "andar 3" : {
@@ -27,8 +37,13 @@
             {"bat": 40},
             {"kobold": 9.9},
             {"esqueleton": 5},
-            {"slime": 5},
-            {"goblin(rare": 0.1}
+            {"slime2": 5},
+            {"goblin(rare)": 0.1}
+        ],
+        "quests": [
+            {"mate 2 slimes verdes": "0/2"},
+            {"mate 1 esqueleto": "0/1"},
+            {"ande 15 vezes": "0/15"}
         ],
         "type": "battle"
     },
@@ -40,6 +55,10 @@
             {"esqueleton": 15},
             {"slime2": 5},
             {"goblin(rare)": 1}
+        ],
+        "quests": [
+            {"mate 20 morcegos": "0/20"},
+            {"ache o goblin raro": "0/1"}
         ],
         "type": "battle"
     },
