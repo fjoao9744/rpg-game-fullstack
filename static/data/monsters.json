@@ -142,5 +142,61 @@
         "defe": [0, 2],
         "speed": 5,
         "image": "static/media/sprites/monsters/goblin_rare.gif"
-    }
+    },
+    "esqueleton2": {
+        "name": "esqueleto guarda",
+        "level": 6,
+        "score": 65,
+        "exp":50,
+        "hp": 70,
+        "atk": 20,
+        "skills": {
+            "golpe com espada" : {
+                "damage": [10, 30],
+                "message": "esqueleto te acerta com uma espadada"
+            },
+            "estocada com espada" : {
+                "damage": [25, 35],
+                "message": "esqueleto avança em uma poderosa estocada"
+            }
+        },
+        "defe": [15, 20],
+        "speed": 35,
+        "image": "static/media/sprites/monsters/esqueleton_guard.gif"
+    },
+    "esqueleton(rare)": {
+        "name": "esqueleto",
+        "level": 6,
+        "score": 300,
+        "exp":25,
+        "hp": 50,
+        "atk": 15,
+        "skills": {
+            "golpe com espada" : {
+                "damage": [10, 30],
+                "message": "esqueleto te acerta com uma espadada"
+            }
+        },
+        "defe": [10, 15],
+        "speed": 15,
+        "image": "static/media/sprites/monsters/esqueleton_rare.gif"
+    },
+    "mumia": {
+        "name": "mumia",
+        "level": 6,
+        "score": 70,
+        "exp": 50,
+        "hp": 80,
+        "atk": 18,
+        "skills": { 
+            "bater" : {
+                "damage": [2, 5],
+                "message": "mumia te ataca!"
+            }
+        },
+        "defe": [15, 24],
+        "speed": 30,
+        "image": "static/media/sprites/monsters/esqueleton_rare.gif"
+    },
+    
 }
