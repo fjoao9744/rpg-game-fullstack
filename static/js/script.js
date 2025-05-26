@@ -1,23 +1,27 @@
-(async () => {
-  let player = await Player();
-  await sendLog("Bem vindo jogador!")
+window.onload = async () => {
+    let player = await Player()
+    await sendLog("Bem vindo jogador!")
 
-  if (!player.monster.name) { // se não tiver em batalha
-    await sendButton("ANDAR", async () => {
+    if (player.monster && player.monster.name) {
+        battle(player.monster);
+
+    } else {
+      await sendButton("ANDAR", async () => {
         let monster = await monsterGen();
         if (!monster) {
-          sendLog("Você não achou nada!")
-          return
+          sendLog("Você não achou nada!");
+          return;
         }
-        player.andar += 0.1;
+
+        player.andar = Math.round((player.andar + 0.1) * 10) / 10; // corrige imprecisão
         await SavePlayer(player);
-        updateStatus();
+        await updateStatus();
         
-        battle(monster)
-    })
-  }
-  
-})()
+        battle(monster);
+      })
+    }
+    
+};
 
 // DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {

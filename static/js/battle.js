@@ -2,15 +2,6 @@ let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
 
-window.onload = async () => {
-    let player = await Player()
-
-    if (player.monster.name) {
-        battle(player.monster);
-    }
-    
-};
-
 async function battle(monster) {
     // registrando batalha
     let player = await Player();
