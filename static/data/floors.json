@@ -5,7 +5,8 @@
             {"slime": 60},
             {"goblin": 30},
             {"orc": 10}
-        ]
+        ],
+        "type": "battle"
     },
     "andar 2" : {
         "background" : "../media/backgrounds/simple.png",
@@ -13,9 +14,44 @@
             {"slime": 20},
             {"goblin": 45},
             {"orc": 20},
-            {"morcego": 10},
+            {"bat": 10},
             {"kobold": 5}
-        ]
+        ],
+        "type": "battle"
+    },
+    "andar 3" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"goblin": 10},
+            {"orc": 30},
+            {"bat": 40},
+            {"kobold": 9.9},
+            {"esqueleton": 5},
+            {"slime": 5},
+            {"goblin(rare": 0.1}
+        ],
+        "type": "battle"
+    },
+    "andar 4" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"bat": 64},
+            {"kobold": 15},
+            {"esqueleton": 15},
+            {"slime2": 5},
+            {"goblin(rare)": 1}
+        ],
+        "type": "battle"
+    },
+    "andar 5" : {
+        "background" : "../media/backgrounds/simple.png",
+        "itens" : [
+            "weapon1",
+            "armor1",
+            "potion1",
+            "ring1"
+        ],
+        "type": "shop"
     }
 }
 

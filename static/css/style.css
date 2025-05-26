@@ -1,11 +1,26 @@
+@font-face {
+    font-family: "Jersey15";
+    src: url('../media/fonts/Jersey_15/Jersey15-Regular.woff2') format('woff2');
+    
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Oxanium";
+    src: url('../media/fonts/Oxanium/Oxanium-VariableFont_wght.woff2') format('woff2');
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-family: 'Jersey15', "Oxanium";
 }
 
 body {
+    font-size: 20px;
     background-color: black;
     color: white;
     width: 100svw;
@@ -167,7 +182,7 @@ footer > div {
     text-align: center;
     border: 2px solid black;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 24px;
     padding: 15px 0;
     margin: 8px 0;
     background-color: white;
