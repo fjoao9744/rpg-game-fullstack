@@ -7,5 +7,6 @@ urlpatterns = [
     path("", views.main, name="main"),
     path("api/", include("api.urls")),
     path("auth/", include("authentication.urls")),
-    path("battle/", include("battle.urls"))
+    path("battle/", include("battle.urls")),
+    path("game/", include("game.urls"))
 ]
