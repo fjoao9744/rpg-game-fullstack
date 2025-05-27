@@ -3,7 +3,7 @@ window.onload = async () => {
     let player = await Player()
     await sendLog("Bem vindo jogador!")
 
-    if (player.monster && player.monster.name) {
+    if (!Object.keys(player.monster).length === 0) {
         await battle(player.monster);
 
     } else {
