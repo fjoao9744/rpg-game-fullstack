@@ -11,8 +11,6 @@
         console.log(player);
         console.log("player encontrado no localstorage");
       }
-      delete player;
-
 
       await createStatus();
 
