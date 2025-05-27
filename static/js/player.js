@@ -1,7 +1,5 @@
 
-async function playerAttack(attack) {
-    let player = await Player();
-
+async function playerAttack(player, attack) {
     let attackDamage = intervalCalculate(attack.damage);
     
     let realDamage = Math.max(attackDamage - intervalCalculate(player.monster.defe), 1);
@@ -19,6 +17,8 @@ async function playerAttack(attack) {
         monsterDead();
         await loadingTransition();
     }
+
+    return player
 
 }
 

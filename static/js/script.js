@@ -1,10 +1,9 @@
 window.onload = async () => {
-
     let player = await Player()
     await sendLog("Bem vindo jogador!")
 
     if (!Object.keys(player.monster).length === 0) {
-        await battle(player.monster);
+        await battle(player, player.monster);
 
     } else {
       await sendButton("ANDAR", async () => {
@@ -18,7 +17,7 @@ window.onload = async () => {
         await SavePlayer(player);
         await updateStatus();
         
-        battle(monster);
+        battle(player, monster);
       })
     }
     

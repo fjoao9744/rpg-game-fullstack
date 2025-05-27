@@ -2,10 +2,10 @@ let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
 
-async function battle(monster) {
+async function battle(player, monster) {
     // registrando batalha
-    let player = await Player();
     player.monster = monster;
+
     await SavePlayer(player);
     await updatePlayer();
 
@@ -32,7 +32,6 @@ async function battle(monster) {
                     opt__area.replaceChildren("");
 
                     try {
-
                         const responseTwo = await fetch("static/data/attacks.json");
                         const Attacks = await responseTwo.json()
 
@@ -51,10 +50,12 @@ async function battle(monster) {
                                 attack__area.style.backgroundImage = `url(${Player__attacks[x].gif})`
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 attack__area.style.backgroundImage = ``
-                                await new Promise(resolve => setTimeout(resolve, 100))
-                                damageAnimate()
-                                playerAttack(Player__attacks[x]);
-                                SavePlayer(player)
+                                await new Promise(resolve => setTimeout(resolve, 100));
+                                damageAnimate();
+
+                                player = await playerAttack(player, Player__attacks[x]);
+                                await SavePlayer(player);
+
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 opt__area.style.opacity = "1"
                                 opt__area.style.pointerEvents = "all"
@@ -64,10 +65,9 @@ async function battle(monster) {
                                     opt__area.appendChild(opt);
                                 });
                                 // teste
-                                // if (player.hp > 0) {
-                                    // }
                                 if (monster.hp > 0) {
-                                    monsterAttack();
+                                    await monsterAttack();
+
                                 }
                                     
 

@@ -77,7 +77,7 @@ async function updateStatus() {
 }
 
 
-async function Player() {
+function Player() {
     return JSON.parse(localStorage.getItem("player"))
 }
 

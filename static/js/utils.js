@@ -20,5 +20,3 @@ async function sendButton(message, func=null, id="", classe="") {
 
     return buttonTag;
 }
-
-

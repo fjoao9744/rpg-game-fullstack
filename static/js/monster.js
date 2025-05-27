@@ -1,16 +1,12 @@
-async function monsterGen() {
-    let player = await Player();
-    
-    let monster = await fetch(`${BASE_URL}/battle/monster/${Math.floor(player.andar)}`).then(response => response.json());
+async function monsterGen(floor) {    
+    let monster = await fetch(`${BASE_URL}/battle/monster/${floor}`).then(response => response.json());
 
     return monster
 }
 
-async function monsterAttack() {
-    let player = await Player();
-
+async function monsterAttack(player) {
     // pegar o ataque
-    console.log(player.monster.skills)
+    
     let attack = attackChoice(Object.values(player.monster.skills));
     sendLog(attack.message);
     
@@ -20,14 +16,14 @@ async function monsterAttack() {
     let realDamage = Math.max(attackDamage - player.defe, 1);
 
     player.hp -= realDamage;
-    await SavePlayer(player)
-    await updateStatus()
 
     sendLog(`${username} perdeu ${realDamage} de hp`);
 
     if (player.hp <= 0) {
         await gameOver();
-    }
+    };
+
+    return player;
 }
 
 function attackChoice(arr) {

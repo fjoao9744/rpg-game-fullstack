@@ -64,7 +64,7 @@ function monsterAnimation() {
         {offset: .4, transform: "translate(5px)"},
         {offset: .6, transform: "translate(-5px)"},
         {offset: .8, transform: "translate(5px)"},
-        {offset: 1, tramsform: "translate(0)"}
+        {offset: 1, transform: "translate(0)"}
     ],
     {
         duration: 10000,
