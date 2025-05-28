@@ -38,11 +38,13 @@ class Floor(APIView):
             return Response({"error": "Player not found"}, status=404)
 
 class NextFloor(APIView):
-    # fazer logica do max_floor
     def get(self, request, player_name):
         try:
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
+            
+            if player.floor == player.max_floor:
+                player.max_floor += 1
 
             player.floor += 1
             player.save()
@@ -56,8 +58,23 @@ class NextFloor(APIView):
         
         except Player.DoesNotExist:
             return Response({"error": "Player not found"}, status=404)
-
+            
 class PastFloor(APIView):
     def get(self, request, player_name):
-        ...
+        try:
+            user = User.objects.get(username=player_name)
+            player = Player.objects.get(user=user)
+            
+            if player.floor > 1:
+                player.floor -= 1
+                player.save()
+
+            floor = utils.get_status_floor(player.floor)
+
+            return Response(floor)
         
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=404)
+        
+        except Player.DoesNotExist:
+            return Response({"error": "Player not found"}, status=404)
