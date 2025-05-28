@@ -46,8 +46,9 @@ class NextFloor(APIView):
             if player.floor == player.max_floor:
                 player.max_floor += 1
 
-            player.floor += 1
-            player.save()
+            if player.max_floor < player.floor:
+                player.floor += 1
+                player.save()
 
             floor = utils.get_status_floor(player.floor)
 

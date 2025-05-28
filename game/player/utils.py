@@ -7,8 +7,8 @@ def get_status_floor(floor_num):
     
     with open(file_path, "r") as floor_json:
         floors = json.load(floor_json)
-
-    floor_list = floors.items()
-    floor = tuple(filter(lambda floor: int(floor[0].split()[-1]) == floor_num, floor_list))[0]
-
+    
+    key = f"andar {floor_num}"
+    floor = floors.get(key)
+    
     return floor
