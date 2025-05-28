@@ -1,9 +1,7 @@
 from django.urls import path
-from game.player.views import PlayerView,Floor, NextFloor, PastFloor, 
+from game.player.views import PlayerView,Floor, NextFloor, PastFloor, PlayerAttackView
 
 urlpatterns = [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     # andares
     path("floor/next/<str:player_name>/", NextFloor.as_view()),
     path("floor/past/<str:player_name>/", PastFloor.as_view()),
@@ -18,16 +16,4 @@ urlpatterns = [
 
 
 ]
-=======
-=======
->>>>>>> Stashed changes
-    path("floor/next/<str:player_name>", NextFloor.as_view()),
-    path("floor/past/<str:player_name>", PastFloor.as_view()),
-    path("floor/<str:player_name>", Floor.as_view()),
-    path("<str:player_name>", PlayerView.as_view()),
-<<<<<<< Updated upstream
-]
->>>>>>> Stashed changes
-=======
-]
->>>>>>> Stashed changes
+
