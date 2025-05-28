@@ -71,7 +71,94 @@
             "ring1"
         ],
         "type": "shop"
-    }
+    },
+    "andar 6" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"bat": 19.9},
+            {"esqueleton2": 20},
+            {"esqueleton(rare)": 0.1},
+            {"mumia": 20},
+            {"ghost": 20}
+        ],
+        "quests": [
+            {"mate 5 guardas esqueletos": "0/5"},
+            {"mate 1 fantasma": "0/1"},
+            {"aumente um level": "0/1"}
+        ],
+        "type": "battle"
+    },
+    "andar 7" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"esqueleton2": 40},
+            {"esqueleton(rare)": 1},
+            {"mumia": 29},
+            {"ghost": 30}
+        ],
+        "quests": [
+            {"mate 5 guardas esqueletos": "0/5"},
+        ],
+        "type": "battle"
+    },
+    "andar 8" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"esqueleton(rare)": 1},
+            {"rat": 19},
+            {"spider": 20},
+            {"worm": 20},
+            {"scorpion": 20},
+            {"ghost": 20}
+        ],
+        "quests": [
+            {"mate 1 rato": "0/1"},
+            {"mate 1 aranha": "0/1"},
+            {"mate 1 minhoca": "0/1"},
+            {"mate 1 escorpião": "0/1"},
+            {"mate 1 fantasma": "0/1"},
+        ],
+        "type": "battle"
+    },
+    "andar 9" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"esqueleton2": 15},
+            {"esqueleton(rare)": 1},
+            {"rat": 10},
+            {"spider": 10},
+            {"worm": 10},
+            {"scorpion": 10},
+            {"ghost": 4},
+            {"ghost2": 20},
+            {"slime3": 20},
+        ],
+        "quests": [
+            {"mate 3 rato": "0/3"},
+            {"mate 3 aranha": "0/3"},
+            {"mate 3 minhoca": "0/3"},
+            {"mate 3 escorpião": "0/3"},
+            {"mate 3 fantasma": "0/3"},
+            {"mate 1 esqueleto raro": "0/1"},
+            {"aumente 1 level": "0/1"},
+            {"ache todos os monstros": "0/9"},
+        ],
+        "type": "battle"
+    },
+    "andar 10" : {
+        "background" : "../media/backgrounds/simple.png",
+        "monsters" : [
+            {"boss1": 100},
+        ],
+        "itens" : [
+            "weapon2",
+            "weapon3",
+            "weapon4",
+            "weapon5",
+            "weapon6"
+        ],
+        "type": "boss"
+    },
 }
 
 
