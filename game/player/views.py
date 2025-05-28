@@ -49,6 +49,7 @@ class NextFloor(APIView):
             if player.max_floor < player.floor:
                 player.floor += 1
                 player.save()
+<<<<<<< Updated upstream
 
             floor = utils.get_status_floor(player.floor)
 
@@ -69,6 +70,8 @@ class PastFloor(APIView):
             if player.floor > 1:
                 player.floor -= 1
                 player.save()
+=======
+>>>>>>> Stashed changes
 
             floor = utils.get_status_floor(player.floor)
 
