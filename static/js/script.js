@@ -21,7 +21,6 @@ window.onload = async () => {
         battle(player, monster);
       })
     }
-    
 };
 
 // DJANGO MESSAGES
