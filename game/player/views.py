@@ -79,15 +79,36 @@ class PastFloor(APIView):
         except Player.DoesNotExist:
             return Response({"error": "Player not found"}, status=404)
 
+class PlayerAttackRandomView(APIView):
+    def get(self, request, player_name):
+        try:
+            user = User.objects.get(username=player_name)
+            player = Player.objects.get(user=user)
+
+            
+        
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=404)
+        
+        except Player.DoesNotExist:
+            return Response({"error": "Player not found"}, status=404)
+        
 class PlayerAttackView(APIView):
     def get(self, request, player_name):
         try:
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
 
-            serializers = PlayerSerializers(player)
+            skills = {
+            "skills": [
+                player.skill1,
+                player.skill2,
+                player.skill3,
+                player.skill4,
+                ]
+            }
 
-            return Response(serializers.data["skills"])
+            return Response(skills)
         
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=404)
@@ -95,7 +116,10 @@ class PlayerAttackView(APIView):
         except Player.DoesNotExist:
             return Response({"error": "Player not found"}, status=404)
             
-    def put(self, request, player_name, attack_num):
+    def put(self, request, player_name, attack_num=None):
+        if not attack_num:
+            return Response({"error": "attack_num não informado"}, status=400)
+    
         skill = request.data.get("skill")
         print(skill)
         

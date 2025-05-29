@@ -12,3 +12,6 @@ def get_status_floor(floor_num):
     floor = floors.get(key)
     
     return floor
+
+def random_attack(player):
+    ...

@@ -3,35 +3,37 @@ async function sendLog(message, id="", classe="") {
     messageTag.innerHTML = message;
     messageTag.id = id;
     messageTag.className = classe;
-    document.querySelector(".text-sidebar__area").appendChild(messageTag);
+    document.querySelector(".text-sidebararea").appendChild(messageTag);
 
     return messageTag;
 }
 
+
 let isOpen = false;
 document.getElementById("toggleSidebar").onclick = () => {
-  const sidebar = document.getElementById("chat__div");
+  const sidebar = document.getElementById("chatdiv");
 
   if (isOpen) {
-    sidebar.classList.remove("sidebar__open");
+    sidebar.classList.remove("sidebaropen");
   } else {
-    sidebar.classList.add("sidebar__open");
+    sidebar.classList.add("sidebaropen");
   }
   isOpen = !isOpen;
   }
-  
+ 
   document.getElementById("close-sidebar").onclick = () => {
-    const sidebar = document.getElementById("chat__div");
+    const sidebar = document.getElementById("chatdiv");
+
 
   if (isOpen) {
-    sidebar.classList.remove("sidebar__open");
+    sidebar.classList.remove("sidebaropen");
   } else {
-    sidebar.classList.add("sidebar__open");
+    sidebar.classList.add("sidebaropen");
   }
+
 
   isOpen = !isOpen;
   }
-
 
 async function sendButton(message, func=null, id="", classe="") {
     let buttonTag = document.createElement("button");
@@ -41,7 +43,8 @@ async function sendButton(message, func=null, id="", classe="") {
     if (func) {
         buttonTag.onclick = func;
     }
-    document.getElementById("chat__div").appendChild(buttonTag);
+    document.getElementById("chatdiv").appendChild(buttonTag);
+
 
     return buttonTag;
 }

@@ -1,5 +1,5 @@
 from django.urls import path
-from game.player.views import PlayerView,Floor, NextFloor, PastFloor, PlayerAttackView
+from game.player.views import *
 
 urlpatterns = [
     # andares
@@ -9,6 +9,7 @@ urlpatterns = [
     
     # attacks
     path("attack/<str:player_name>/<int:attack_num>/", PlayerAttackView.as_view()),
+    path("attack/new/<str:player_name>/", PlayerAttackRandomView.as_view()),
     path("attack/<str:player_name>/", PlayerAttackView.as_view()),
 
     # player
