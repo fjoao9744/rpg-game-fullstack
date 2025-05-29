@@ -198,18 +198,27 @@ footer > div {
 }
 
 #chat__div {
-    background-color: black;
-    width: 20%;
-    padding: 20px;
-    right: 0%;
-    position: fixed;
-    height: 100svh;
-    margin: 1px;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-end;
+
+display: flex;
+  flex: 1;
+  overflow: auto;
+  align-items: stretch;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  /* right: -100svw; */
+  right: 0%;
+  max-width: 37svw;
+  min-width: 33svw;
+  height: 100svh;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  transition: right .5s ease;
+  z-index: 1000;
+  font-weight: bold;
+
 }
 #chat__div > button {
     pointer-events: all;
