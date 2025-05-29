@@ -85,7 +85,9 @@ class PlayerAttackRandomView(APIView):
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
 
+            attack = utils.random_attack(player)
             
+            return Response(attack)
         
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=404)

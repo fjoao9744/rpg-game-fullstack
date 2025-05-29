@@ -9,7 +9,7 @@ urlpatterns = [
     
     # attacks
     path("attack/<str:player_name>/<int:attack_num>/", PlayerAttackView.as_view()),
-    path("attack/new/<str:player_name>/", PlayerAttackRandomView.as_view()),
+    path("attack/gen/<str:player_name>/", PlayerAttackRandomView.as_view()),
     path("attack/<str:player_name>/", PlayerAttackView.as_view()),
 
     # player
