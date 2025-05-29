@@ -97,7 +97,7 @@
             {"ghost": 30}
         ],
         "quests": [
-            {"mate 5 guardas esqueletos": "0/5"},
+            {"mate 5 guardas esqueletos": "0/5"}
         ],
         "type": "battle"
     },
@@ -116,7 +116,7 @@
             {"mate 1 aranha": "0/1"},
             {"mate 1 minhoca": "0/1"},
             {"mate 1 escorpião": "0/1"},
-            {"mate 1 fantasma": "0/1"},
+            {"mate 1 fantasma": "0/1"}
         ],
         "type": "battle"
     },
@@ -131,7 +131,7 @@
             {"scorpion": 10},
             {"ghost": 4},
             {"ghost2": 20},
-            {"slime3": 20},
+            {"slime3": 20}
         ],
         "quests": [
             {"mate 3 rato": "0/3"},
@@ -141,14 +141,14 @@
             {"mate 3 fantasma": "0/3"},
             {"mate 1 esqueleto raro": "0/1"},
             {"aumente 1 level": "0/1"},
-            {"ache todos os monstros": "0/9"},
+            {"ache todos os monstros": "0/9"}
         ],
         "type": "battle"
     },
     "andar 10" : {
         "background" : "../media/backgrounds/simple.png",
         "monsters" : [
-            {"boss1": 100},
+            {"boss1": 100}
         ],
         "itens" : [
             "weapon2",
@@ -158,7 +158,7 @@
             "weapon6"
         ],
         "type": "boss"
-    },
+    }
 }
 
 

@@ -1,4 +1,11 @@
 window.onload = async () => {
+    let skill = await fetch(`${BASE_URL}/game/attack/joao/1`, {
+      method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({"skill" : {"attack1":{"gif":"static/media/sprites/atacks/attack_basic.gif","name":"ataque basico","type":"none","value":0,"damage":[2,5],"effect":null,"description":"um simples ataque"}}})
+    })
+    console.log(skill)
+
     let player = await Player()
     await sendLog("Bem vindo jogador!")
 

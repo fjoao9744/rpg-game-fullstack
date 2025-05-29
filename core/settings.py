@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'game',
     'main',
     'authentication',
-    'battle'
+    'battle',
 ]
 
 MIDDLEWARE = [

@@ -5,9 +5,8 @@ import random
 def default_atk():
     return random.randint(2, 5)
 
-def default_skills():
-    return {
-        "attack1": {
+def default_skill1():
+    return {"attack1": {
             "name": "ataque basico",
             "type": "none",
             "damage": [2, 5],
@@ -15,17 +14,18 @@ def default_skills():
             "effect": None,
             "value": 0,
             "gif": "static/media/sprites/atacks/attack_basic.gif"
-        },
-        "status1": {
-            "name": "defender",
-            "type": "none",
-            "damage": [0, 0],
-            "description": "você esta preparado para defender um golpe",
-            "effect": "defense",
-            "value": 10,
-            "gif": "static/media/sprites/atacks/attack_basic.gif"
-        }
-    }
+        }}
+    
+def default_skill2():
+    return {"status1": {
+        "name": "defender",
+        "type": "none",
+        "damage": [0, 0],
+        "description": "você esta preparado para defender um golpe",
+        "effect": "defense",
+        "value": 10,
+        "gif": "static/media/sprites/atacks/attack_basic.gif"
+    }}
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='player', null=False, blank=True)
@@ -38,7 +38,10 @@ class Player(models.Model):
     gold = models.IntegerField(default=0)
     hp = models.IntegerField(default=20)
     atk = models.IntegerField(default=default_atk)
-    skills = models.JSONField(default=default_skills)
+    skill1 = models.JSONField(default=default_skill1)
+    skill2 = models.JSONField(default=default_skill2)
+    skill3 = models.JSONField(default=dict)
+    skill4 = models.JSONField(default=dict)
     inventory = models.JSONField(default=dict)
     achievements = models.JSONField(default=dict)
     monster = models.JSONField(default=dict)

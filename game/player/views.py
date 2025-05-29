@@ -95,5 +95,26 @@ class PlayerAttackView(APIView):
         except Player.DoesNotExist:
             return Response({"error": "Player not found"}, status=404)
             
-    def post(self, request, player_name, attack_num):
-        ...
+    def put(self, request, player_name, attack_num):
+        skill = request.data.get("skill")
+        print(skill)
+        
+        if not skill:
+            return Response({"error": "Skill não enviada no corpo da requisição"}, status=400)
+        
+        try:
+            user = User.objects.get(username=player_name)
+            player = Player.objects.get(user=user)
+            
+            toggle_skill = f"skill{attack_num}"
+            
+            setattr(player, toggle_skill, skill)
+            player.save()
+
+            return Response(skill)
+        
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=404)
+        
+        except Player.DoesNotExist:
+            return Response({"error": "Player not found"}, status=404)
