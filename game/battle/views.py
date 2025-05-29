@@ -11,13 +11,16 @@ class BattleStartView(APIView):
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
 
+            if player.monster:
+                return Response(player.monster)
+            
             monster = utils.choice_monster(player.floor)
-
+            
             player.monster = monster
             player.save()
-
-            return Response(monster)
-        
+            
+            return Response(monster, status=status.HTTP_201_CREATED)
+                    
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=404)
         
