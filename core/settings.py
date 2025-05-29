@@ -92,19 +92,19 @@ if IS_PRODUCTION:
     CSRF_COOKIE_SECURE = True     # cookie CSRF só via HTTPS
 
 else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
     # DATABASES = {
-    #     'default': dj_database_url.config(
-    #     default="postgresql://neondb_owner:npg_cATPmxCs1EU5@ep-mute-tooth-a6k3wpy4-pooler.us-west-2.aws.neon.tech/neondb?sslmode=require",
-    #     conn_max_age=600,
-    #     ssl_require=True
-    # )
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     }
     # }
+    DATABASES = {
+        'default': dj_database_url.config(
+        default="postgresql://neondb_owner:npg_cATPmxCs1EU5@ep-mute-tooth-a6k3wpy4-pooler.us-west-2.aws.neon.tech/neondb?sslmode=require",
+        conn_max_age=600,
+        ssl_require=True
+    )
+    }
     DEBUG = True
     STATIC_URL = 'static/'
   
