@@ -238,7 +238,8 @@ footer > div {
     align-items: stretch;
 }
 
-.close-sidebar__area {
+
+.close-sidebararea {
   display: inherit;
   justify-content: space-between;
   width: 100%;
@@ -246,7 +247,8 @@ footer > div {
   border-bottom: 3px solid rgba(128, 128, 128, 0.3);
 }
 
-.close-sidebar__area > div {
+
+.close-sidebararea > div {
   display: flex;
   align-items: center;
   width: 100%;
@@ -257,14 +259,16 @@ footer > div {
   transition: border .4s ease, background-color .4s ease;
 }
 
-.close-sidebar__area > div:hover {
+
+.close-sidebararea > div:hover {
   border-left: 4px solid blue;
   cursor: pointer;
   background-color: gray;
   border-radius: 7px;
 }
 
-.text-sidebar__area {
+
+.text-sidebararea {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -273,9 +277,11 @@ footer > div {
   overflow-y: auto;
 }
 
-.sidebar__open {
+
+.sidebaropen {
   right: 0;
 }
+
 
 #close-sidebar {
   background-color: black;
@@ -290,8 +296,7 @@ footer > div {
   z-index: 1001;
 }
 
-
-#chat__div > button {
+#chatdiv > button {
     pointer-events: all;
 }
 
