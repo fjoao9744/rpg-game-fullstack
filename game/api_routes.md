@@ -12,6 +12,8 @@ GET game/player/attack/gen/<player_name> -> retorna um ataque aleatorio de acord
 # Battle
 GET game/battle/start/<player_name> -> gera e retorna um monstro na tabela do player com base no andar dele(se ja estiver em batalha só retorna o monstro)
 GET game/battle/turn/<player_name> -> retorna um array com o status do monstro e do player
+- se o monstro for derrotado, automaticamente o player ganha exp
+- se o player ganhar exp suficiente, ele upa
 
 # Rank
 GET game/rank/score -> retorna os dados de todos os player em ordem de score 
@@ -19,4 +21,3 @@ GET game/rank/floor -> retorna os dados de todos os player em ordem de andar
 GET game/rank/gold -> retorna os dados de todos os player em ordem de dinheiro 
 GET game/rank/level -> retorna os dados de todos os player em ordem de level
 GET game/rank/kills -> retorna os dados de todos os player em ordem de kills
-

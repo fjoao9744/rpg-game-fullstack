@@ -3,11 +3,10 @@ async function sendLog(message, id="", classe="") {
     messageTag.innerHTML = message;
     messageTag.id = id;
     messageTag.className = classe;
-    document.querySelector(".text-sidebararea").appendChild(messageTag);
+    document.querySelector(".text-sidebar__area").appendChild(messageTag);
 
     return messageTag;
 }
-
 
 let isOpen = false;
 document.getElementById("toggleSidebar").onclick = () => {
