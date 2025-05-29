@@ -1,7 +1,7 @@
 .transition-window__area {
   background-color: black;
   width: 100svw;
-  height: 100svh;
+  height: 200svh;
   position: fixed;
   display: flex;
   justify-content: center;

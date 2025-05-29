@@ -16,14 +16,14 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-    {% if not user.is_superuser %}
+    <!-- {% if not user.is_superuser %}
         <div id="modal__"></div>
         <div id="modal">
             <h1>lançamento: 01/06/2025</h1>
             <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
             <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
         </div>
-    {% endif %}
+    {% endif %} -->
 
     {% if messages %}
         {% for message in messages %}
@@ -88,14 +88,27 @@
                     RUN
                 </div>
             </div>
+
+                        
         </main>
         <footer>
             <div>
                 <p>&copy; <a href="https://github.com/fjoao9744" class="copy">João F.</a> & <a href="https://github.com/HendrickReis" class="copy">Smogon</a></p>
             </div>
 
+<button id="toggleSidebar" class="toggle-button">CHAT</button>
+        
             <div id="chat__div">
-                
+    
+                  <div class="close-sidebar__area">
+                    <div class="log-sidebar">LOG</div>
+                    <div class="chat-sidebar">CHAT</div>
+                    <button id="close-sidebar">X</button>
+                 </div>
+
+                <div class="text-sidebar__area">
+                </div>
+
             </div>
         </footer>
     </div>

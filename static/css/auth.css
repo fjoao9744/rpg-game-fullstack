@@ -37,6 +37,7 @@ form {
     font-family: Arial, Helvetica, sans-serif;
     justify-content: space-between;
     color: black;
+    padding: 15px;
 }
 
 form button {
