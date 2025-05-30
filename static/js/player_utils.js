@@ -5,46 +5,46 @@ async function createStatus() {
     let player = await getPlayer()
 
     let floorTag = document.createElement("p");
-    floorTag.innerHTML = `andar: ${player.floor}`;
+    floorTag.innerHTML = `<p>andar: ${player.floor}</p>`;
     status_player_div.appendChild(floorTag);
 
     let scoreTag = document.createElement("p");
-    scoreTag.innerHTML = `score: ${player.score}`;
+    scoreTag.innerHTML = `<p>score: ${player.score}</p>`;
     scoreTag.style.color = "grey"
     status_player_div.appendChild(scoreTag);
 
     let hpTag = document.createElement("p");
-    hpTag.innerHTML = `hp: ${player.hp}`;
+    hpTag.innerHTML = `<p>hp: ${player.hp}</p>`;
     status_player_div.appendChild(hpTag);
     
     let levelTag = document.createElement("p");
-    levelTag.innerHTML = `level: ${player.level}`;
+    levelTag.innerHTML = `<p>level: ${player.level}</p>`;
     status_player_div.appendChild(levelTag);
     
     let expTag = document.createElement("p");
-    expTag.innerHTML = `exp: ${player.exp}`;
+    expTag.innerHTML = `<p>exp: ${player.exp}</p>`;
     expTag.style.color = "grey"
     status_player_div.appendChild(expTag);
     
     let killTag = document.createElement("p");
-    killTag.innerHTML = `kills: ${player.kill}`;
+    killTag.innerHTML = `<p>kills: ${player.kill}</p>`;
     killTag.style.color = "grey"
     status_player_div.appendChild(killTag);
     
     let goldTag = document.createElement("p");
-    goldTag.innerHTML = `gold: ${player.gold}`;
+    goldTag.innerHTML = `<p>gold: ${player.gold}</p>`;
     status_player_div.appendChild(goldTag);
     
     let attackTag = document.createElement("p");
-    attackTag.innerHTML = `ataque: ${player.atk}`;
+    attackTag.innerHTML = `<p>ataque: ${player.atk}</p>`;
     status_player_div.appendChild(attackTag);
     
     let defenseTag = document.createElement("p");
-    defenseTag.innerHTML = `defesa: ${player.defe}`;
+    defenseTag.innerHTML = `<p>defesa: ${player.defe}</p>`;
     status_player_div.appendChild(defenseTag);
     
     let speedTag = document.createElement("p");
-    speedTag.innerHTML = `velocidade: ${player.speed}`;
+    speedTag.innerHTML = `<p>velocidade: ${player.speed}</p>`;
     status_player_div.appendChild(speedTag);
     
     if (!showAll) {
@@ -66,6 +66,14 @@ async function createStatus() {
             showAll = true
         }
     }
+}
+
+async function updateStatus() {
+    while (status_player_div.firstChild) {
+        status_player_div.removeChild(status_player_div.firstChild);
+    }
+
+    await createStatus();
 }
 
 

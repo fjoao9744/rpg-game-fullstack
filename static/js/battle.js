@@ -8,14 +8,10 @@ const opt__manager = document.querySelectorAll('.opt-manager');
 //     damageLetterAnimation();
 // })()
 
-async function battle(player, monster) {
-    // registrando batalha
-    player.monster = monster;
-
-    await SavePlayer(player);
-    await updatePlayer();
-
-    console.log(monster);
+async function battle(monster) {
+    player = await getPlayer();
+    console.log(player)
+    monster = player.monster
 
     document.getElementById("monster-hp__bar").value = monster.hp
     document.getElementById("monster-hp__bar").max = monster.hp
@@ -30,37 +26,37 @@ async function battle(player, monster) {
     monsterAnimation();
     
     opt__manager.forEach((opt) => {
-        opt.addEventListener('click', async (event) => {
+        
+        opt.onclick = async (event) => {
             const idTarget = event.currentTarget.id;
 
             switch (idTarget) {
                 case "fight_option": 
-                    opt__area.replaceChildren("");
+                    opt__area.replaceChildren();
+
+                    let attacks = [player.skill1, player.skill2, player.skill3, player.skill4]
+                    let player__attacks = attacks.filter(obj => obj && Object.keys(obj).length > 0);
+                    console.log(player__attacks)
 
                     try {
-                        const responseTwo = await fetch("static/data/attacks.json");
-                        const Attacks = await responseTwo.json()
-
-                        let ataqueBasico = ["static/media/sprites/atacks/slices_dark.gif"]
-
-                        Player__attacks = Object.values(player.skills);
-
-                        for (let x = 0; x < Player__attacks.length; x++) {
+                        for (let x = 0; x < player__attacks.length; x++) {
+                            let attack = Object.values(player__attacks[x])[0]
                             let ataque = document.createElement("div");
                             ataque.className = "options";
-                            ataque.innerHTML = Player__attacks[x].name;
+                            ataque.innerHTML = attack.name;
                             
                             ataque.addEventListener('click', async () => {
+
+                                await playerAttack(x)
+
                                 opt__area.style.opacity = "0"
                                 opt__area.style.pointerEvents = "none"
-                                attack__area.style.backgroundImage = `url(${Player__attacks[x].gif})`
+                                attack__area.style.backgroundImage = `url(${attack.gif})`
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 attack__area.style.backgroundImage = ``
                                 await new Promise(resolve => setTimeout(resolve, 100));
-                                damageAnimate();
-
-                                player = await playerAttack(player, Player__attacks[x]);
-                                await SavePlayer(player);
+                                await damageAnimate();
+                                await damageLetterAnimation();
 
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 opt__area.style.opacity = "1"
@@ -69,12 +65,7 @@ async function battle(player, monster) {
                                 opt__area.style.flexDirection = "column";
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
-                                });
-                                // teste
-                                if (monster.hp > 0) {
-                                    await monsterAttack();
-                                }
-                                    
+                                });                                    
 
                             });
 
@@ -107,6 +98,6 @@ async function battle(player, monster) {
                     );
                     break;
             }
-        });
+        };
     });
 }

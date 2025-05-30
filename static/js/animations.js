@@ -73,6 +73,7 @@ function monsterAnimation() {
     }
   )
 }
+
 function damageAnimate() {
   document.querySelector("#monster__image").animate(
       { transform: ['translateX(0)', 
@@ -89,10 +90,10 @@ function damageAnimate() {
 )
 }
 
-function damageLetterAnimation() {
+async function damageLetterAnimation() {
   let letter = document.querySelector(".damage-letter")
   letter.style.display = "block";
-  letter.animate(
+  await letter.animate(
     [
      {offset: 0, transform: "translateY(0)", opacity: "0", scale: "0"},
      {offset: .3, transform: "translateY(-200%)", opacity: "1", scale: "1"},
@@ -101,10 +102,10 @@ function damageLetterAnimation() {
     ],
     {
       duration: 900,
-      easing: 'ease-in-out',
-      iterations: Infinity
+      easing: 'ease-in-out'
     }
-  )
+  ).finished
+  letter.style.display = "block";
 }
 
 async function monsterDeathAnimation() {

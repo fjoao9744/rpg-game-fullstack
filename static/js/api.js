@@ -1,5 +1,5 @@
 async function getFloor() {
-    const response = await fetch(`${BASE_URL}/game/player/floor/${username}`)
+    const response = await fetch(`${BASE_URL}/game/player/floor/${username}/`)
 
     data = await response.json()
 
@@ -8,8 +8,16 @@ async function getFloor() {
     return data
 }
 
+async function playerAttack(attack_num) {
+    data = await fetch(`${BASE_URL}/game/battle/turn/player/${username}/${attack_num}`).then(response => response.json());
+
+    console.log(data)
+
+
+}
+
 // async function nextFloor() {
-//     // se player puder upar
+//     se player puder upar
 
 //     const response = await fetch(`${BASE_URL}/game/player/floor/next/${username}`)
 
@@ -17,8 +25,8 @@ async function getFloor() {
 
 //     return data
 
-//     // else
+//     else
 
-//     await sendLog("Complete todas ")
+//     await sendLog("Complete todas as quests")
 
 // }

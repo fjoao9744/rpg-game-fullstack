@@ -65,7 +65,7 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     messages.info(request, "Usuario desconectado.")
-    return redirect("main")
+    return redirect("login")
 
 def forgot_password_view(request):
     if request.method == "GET":

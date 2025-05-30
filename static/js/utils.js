@@ -8,6 +8,20 @@ async function sendLog(message, id="", classe="") {
     return messageTag;
 }
 
+async function sendButton(message, func=null, id="", classe="") {
+    let buttonTag = document.createElement("button");
+    buttonTag.innerHTML = message;
+    buttonTag.id = id;
+    buttonTag.className = classe;
+    if (func) {
+        buttonTag.onclick = func;
+    }
+    document.querySelector(".text-sidebar__area").appendChild(buttonTag);
+
+
+    return buttonTag;
+}
+
 let isOpen = false;
 document.getElementById("toggleSidebar").onclick = () => {
   const sidebar = document.getElementById("chatdiv");
@@ -33,17 +47,3 @@ document.getElementById("toggleSidebar").onclick = () => {
 
   isOpen = !isOpen;
   }
-
-async function sendButton(message, func=null, id="", classe="") {
-    let buttonTag = document.createElement("button");
-    buttonTag.innerHTML = message;
-    buttonTag.id = id;
-    buttonTag.className = classe;
-    if (func) {
-        buttonTag.onclick = func;
-    }
-    document.getElementById("chatdiv").appendChild(buttonTag);
-
-
-    return buttonTag;
-}

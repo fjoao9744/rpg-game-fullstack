@@ -13,6 +13,6 @@ urlpatterns = [
     path("attack/<str:player_name>/", PlayerAttackView.as_view()),
 
     # player
-    path("<str:player_name>/", PlayerView.as_view()),
+    path("<str:player_name>/", PlayerView.as_view())
 ]
 
