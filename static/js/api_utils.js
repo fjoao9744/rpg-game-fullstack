@@ -12,36 +12,8 @@ if (["localhost", "127.0.0.1", "::1"].includes(hostname)) {
   BASE_URL = "https://rpg-game-fullstack-production.up.railway.app"; // valor padrão
 }
 
-async function userExists() { // da um head para verificar se um user existe
-    const response = await fetch(`${BASE_URL}/api/?name=${encodeURIComponent(username)}`, {method: "HEAD"})
-
-    return response.ok
-}
-
 async function getPlayer() { // retorna os dados do jogador(do banco)
-    const response = await fetch(`${BASE_URL}/api/?name=${encodeURIComponent(username)}`, {method: "GET"})
-
-    const data = await response.json();
-    return data;
-}
-
-async function createPlayer() { // cria um usuario do 0
-    const response = await fetch(`${BASE_URL}/api/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify({ name: username })
-    });
-    
-    const data = await response.json();
-    return data;
-}
-
-async function updatePlayer(player) { // atualiza o player no banco e no localstorage
-    const response = await fetch(`${BASE_URL}/api/`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(player)
-    });
+    const response = await fetch(`${BASE_URL}/game/player/${username}`, {method: "GET"})
 
     const data = await response.json();
     return data;

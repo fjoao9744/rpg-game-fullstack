@@ -42,5 +42,12 @@ def get_status_monster(monster):
         
     return monster
 
-
-
+def get_status_attack(attack):
+    file_path = os.path.join(settings.BASE_DIR, 'static', 'data', 'attacks.json')
+    
+    with open(file_path, "r") as attack_json:
+        attacks = json.load(attack_json)
+        
+    attack = attacks.get(attack)
+    
+    return attack

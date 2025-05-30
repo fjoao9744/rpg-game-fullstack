@@ -123,7 +123,6 @@ class PlayerAttackView(APIView):
             return Response({"error": "attack_num não informado"}, status=400)
     
         skill = request.data.get("skill")
-        print(skill)
         
         if not skill:
             return Response({"error": "Skill não enviada no corpo da requisição"}, status=400)

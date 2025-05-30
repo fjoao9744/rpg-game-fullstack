@@ -2,6 +2,12 @@ let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
 
+// (() => {
+//     document.querySelector(".atack-animation__area").style.backgroundImage = `url(static/media/sprites/atacks/electric_power.gif)`
+//     document.querySelector("#monster__image").src = "static/media/sprites/monsters/ghost_red.gif"
+//     damageLetterAnimation();
+// })()
+
 async function battle(player, monster) {
     // registrando batalha
     player.monster = monster;
@@ -40,7 +46,7 @@ async function battle(player, monster) {
                         Player__attacks = Object.values(player.skills);
 
                         for (let x = 0; x < Player__attacks.length; x++) {
-                            let ataque = document.createElement("button");
+                            let ataque = document.createElement("div");
                             ataque.className = "options";
                             ataque.innerHTML = Player__attacks[x].name;
                             
@@ -67,7 +73,6 @@ async function battle(player, monster) {
                                 // teste
                                 if (monster.hp > 0) {
                                     await monsterAttack();
-
                                 }
                                     
 

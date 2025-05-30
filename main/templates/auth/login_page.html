@@ -9,15 +9,13 @@
     <link rel="shortcut icon" href="{% static 'media/icons/favicon.ico' %}" type="image/x-icon">
     <title>login</title>
 
-
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6701534999211145"
      crossorigin="anonymous"></script>
 </head>
 <body>
     {% if messages %}
         {% for message in messages %}
-            <div class="django-message__div">{{ message }}</div>
+            <div class="django-message__div-auth">{{ message }}</div>
         {% endfor %}
     {% endif %}
 

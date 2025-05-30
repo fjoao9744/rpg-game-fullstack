@@ -2,10 +2,10 @@ let status_player_div = document.getElementById("status__div");
 let showAll = false;
 
 async function createStatus() {
-    let player = await Player()
+    let player = await getPlayer()
 
     let floorTag = document.createElement("p");
-    floorTag.innerHTML = `andar: ${player.andar}`;
+    floorTag.innerHTML = `andar: ${player.floor}`;
     status_player_div.appendChild(floorTag);
 
     let scoreTag = document.createElement("p");
@@ -68,20 +68,4 @@ async function createStatus() {
     }
 }
 
-async function updateStatus() {
-    while (status_player_div.firstChild) {
-        status_player_div.removeChild(status_player_div.firstChild);
-    }
-
-    createStatus();
-}
-
-
-function Player() {
-    return JSON.parse(localStorage.getItem("player"))
-}
-
-async function SavePlayer(player) {
-    localStorage.setItem("player", JSON.stringify(player))
-}
 

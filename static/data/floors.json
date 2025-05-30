@@ -1,6 +1,6 @@
 {
     "andar 1" : {
-        "background" : "../media/backgrounds/simple.png",
+        "background" : "static/media/backgrounds/simple.png",
         "monsters" : [
             {"slime": 60},
             {"goblin": 30},
@@ -14,7 +14,7 @@
         "type": "battle"
     },
     "andar 2" : {
-        "background" : "../media/backgrounds/simple2.png",
+        "background" : "static/media/backgrounds/simple2.png",
         "monsters" : [
             {"slime": 20},
             {"goblin": 45},
@@ -30,7 +30,7 @@
         "type": "battle"
     },
     "andar 3" : {
-        "background" : "../media/backgrounds/wood_plant.png",
+        "background" : "static/media/backgrounds/wood_plant.png",
         "monsters" : [
             {"goblin": 10},
             {"orc": 30},
@@ -48,7 +48,7 @@
         "type": "battle"
     },
     "andar 4" : {
-        "background" : "../media/backgrounds/wood_red.png",
+        "background" : "static/media/backgrounds/wood_red.png",
         "monsters" : [
             {"bat": 64},
             {"kobold": 15},
@@ -63,7 +63,7 @@
         "type": "battle"
     },
     "andar 5" : {
-        "background" : "../media/backgrounds/simple.png",
+        "background" : "static/media/backgrounds/simple.png",
         "itens" : [
             "weapon1",
             "armor1",
@@ -73,7 +73,7 @@
         "type": "shop"
     },
     "andar 6" : {
-        "background" : "../media/backgrounds/eye.png",
+        "background" : "static/media/backgrounds/eye.png",
         "monsters" : [
             {"bat": 19.9},
             {"esqueleton2": 20},
@@ -89,7 +89,7 @@
         "type": "battle"
     },
     "andar 7" : {
-        "background" : "../media/backgrounds/eye_red.png",
+        "background" : "static/media/backgrounds/eye_red.png",
         "monsters" : [
             {"esqueleton2": 40},
             {"esqueleton(rare)": 1},
@@ -102,7 +102,7 @@
         "type": "battle"
     },
     "andar 8" : {
-        "background" : "../media/backgrounds/eye_red.png",
+        "background" : "static/media/backgrounds/eye_red.png",
         "monsters" : [
             {"esqueleton(rare)": 1},
             {"rat": 19},
@@ -121,7 +121,7 @@
         "type": "battle"
     },
     "andar 9" : {
-        "background" : "../media/backgrounds/eye_blue.png",
+        "background" : "static/media/backgrounds/eye_blue.png",
         "monsters" : [
             {"esqueleton2": 15},
             {"esqueleton(rare)": 1},
@@ -146,7 +146,7 @@
         "type": "battle"
     },
     "andar 10" : {
-        "background" : "../media/backgrounds/eye_blue.png",
+        "background" : "static/media/backgrounds/eye_blue.png",
         "monsters" : [
             {"boss1": 100}
         ],

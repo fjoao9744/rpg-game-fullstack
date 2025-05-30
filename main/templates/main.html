@@ -25,13 +25,13 @@
         </div>
     {% endif %}
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="django-message__div">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
     
     <div id="root">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="django-message__div">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
         <header>
             <div>
                 {% if user.is_authenticated %}
@@ -66,7 +66,7 @@
                 <div class="monster__area">
                     <img alt="MonsterPNG" id="monster__image">
                     <div class="atack-animation__area">
-                        <p class="damage-letter">OI</p>
+                        <p class="damage-letter">-4hp</p>
                     </div>
                 </div>
             </div>
@@ -118,16 +118,13 @@
         const username = "{{ username|escapejs }}";
     </script>
     <script src="{% static 'js/utils.js' %}"></script> <!-- funções globais -->
+    <script src="{% static 'js/api.js' %}"></script>
     <script src="{% static 'js/api_utils.js' %}"></script> <!-- api -->
     <script src="{% static 'js/player_utils.js' %}"></script> <!-- visuais do jogador -->
     <script src="{% static 'js/player_init.js' %}"></script> <!-- inicia o jogador -->
     <script src="{% static 'js/animations.js' %}"></script> <!-- debug, testes e extras -->
-    <script src="{% static 'js/battle_utils.js' %}"></script> <!-- funções de batalha -->
-    <script src="{% static 'js/monster.js' %}"></script> <!-- funções dos monstros -->
-    <script src="{% static 'js/player.js' %}"></script> <!-- funções do player -->
     <script src="{% static 'js/battle.js' %}"></script> <!-- logica de batalha -->
     <script src="{% static 'js/script.js' %}"></script> <!-- debug, testes e extras -->
-
 
 </body>
 </html>

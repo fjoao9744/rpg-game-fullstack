@@ -89,6 +89,24 @@ function damageAnimate() {
 )
 }
 
+function damageLetterAnimation() {
+  let letter = document.querySelector(".damage-letter")
+  letter.style.display = "block";
+  letter.animate(
+    [
+     {offset: 0, transform: "translateY(0)", opacity: "0", scale: "0"},
+     {offset: .3, transform: "translateY(-200%)", opacity: "1", scale: "1"},
+     {offset: .7, transform: "translateY(-180%)", opacity: "1", scale: "1"},
+     {offset: 1, transform: "translateY(-180%)", opacity: "0", scale: "0.9"}
+    ],
+    {
+      duration: 900,
+      easing: 'ease-in-out',
+      iterations: Infinity
+    }
+  )
+}
+
 async function monsterDeathAnimation() {
   await document.getElementById("test").animate(
     [
@@ -97,10 +115,30 @@ async function monsterDeathAnimation() {
       {offset: .5, transform: "translateY(50px) rotate(45deg)", scale: "0.7"},
       {offset: .7, transform: "translateY(0px) rotate(80deg)", opacity: "1", backgroundColor: "black", scale: "0.7"},
       {offset: 1, transform: "translateY(50px) rotate(70deg)", opacity: "0", backgroundColor: "black", scale: "0.7"}
-      ],
+    ],
     {
       duration: 1500,
       easing: "ease"
     }
-    ).finished
+  ).finished
 }
+
+// animação pro tung tung sahur --->
+
+// function damageLetterAnimation() {
+//   let letter = document.querySelector(".damage-letter")
+//   letter.style.display = "block";
+//   letter.animate(
+//     [
+//      {offset: 0, transform: "translateY(0) translateX(0)", opacity: "0", scale: "0"},
+//      {offset: .3, transform: "translateY(25%) translateX(20px)", opacity: "1", scale: "1"},
+//      {offset: .7, transform: "translateY(20%) translateX(-20px)", opacity: "1", scale: "1"},
+//      {offset: 1, transform: "translateY(0) translateX(0)", opacity: "0", scale: "0"}
+//     ],
+//     {
+//       duration: 900,
+//       easing: 'ease-in-out',
+//       iterations: Infinity
+//     }
+//   )
+// }
