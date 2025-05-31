@@ -35,7 +35,7 @@ class BattlePlayerTurnView(APIView):
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
 
-            key = f"skill{attack_num}"
+            key = f"skill{int(attack_num) + 1}"
             attack = getattr(player, key)
             attack = list(attack.values())[0]
 

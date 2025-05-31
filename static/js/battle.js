@@ -2,28 +2,23 @@ let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
 
-// (() => {
-//     document.querySelector(".atack-animation__area").style.backgroundImage = `url(static/media/sprites/atacks/electric_power.gif)`
-//     document.querySelector("#monster__image").src = "static/media/sprites/monsters/ghost_red.gif"
-//     damageLetterAnimation();
-// })()
-
-async function battle(monster) {
-    player = await getPlayer();
+async function battle() {
+    let player = await getPlayer();
+    let monster = player.monster;
     console.log(player)
-    monster = player.monster
 
     document.getElementById("monster-hp__bar").value = monster.hp
     document.getElementById("monster-hp__bar").max = monster.hp
 
     document.getElementById("monster__image").src = monster.image;
-    document.querySelectorAll(".monster__name")[0].innerHTML = monster.name.toUpperCase();
+    document.querySelector(".monster__name").innerHTML = monster.name.toUpperCase();
     
     document.getElementById("monster__image").style.display = "block";
     sendLog(`${monster.name} apareceu`)
 
     // batalha
     monsterAnimation();
+    let previus_hp = monster.hp
     
     opt__manager.forEach((opt) => {
         
@@ -47,7 +42,15 @@ async function battle(monster) {
                             
                             ataque.addEventListener('click', async () => {
 
-                                await playerAttack(x)
+                                let response = await playerAttack(x);
+                                player = response.player;
+                                monster = response.monster;
+
+                                let dano = previus_hp - monster.hp;
+                                previus_hp = monster.hp;
+
+                                document.querySelector(".damage-letter").innerHTML = `-${dano}hp`;
+                                document.getElementById("monster-hp__bar").value = monster.hp;
 
                                 opt__area.style.opacity = "0"
                                 opt__area.style.pointerEvents = "none"

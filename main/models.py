@@ -37,6 +37,7 @@ class Player(models.Model):
     exp = models.IntegerField(default=0)
     gold = models.IntegerField(default=0)
     hp = models.IntegerField(default=20)
+    max_hp = models.IntegerField(default=20)
     atk = models.IntegerField(default=default_atk)
     skill1 = models.JSONField(default=default_skill1)
     skill2 = models.JSONField(default=default_skill2)
@@ -51,3 +52,7 @@ class Player(models.Model):
     def __str__(self):
         return self.user.username
     
+    class Meta:
+        managed = True
+        db_table = 'main_player'
+        

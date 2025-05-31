@@ -76,10 +76,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 IS_PRODUCTION = config('IS_PRODUCTION', default=False, cast=bool)
 
+DATABASE_URL = config('DATABASE_URL')
 if IS_PRODUCTION:
     DATABASES = {
         'default': dj_database_url.config(
-        default="postgresql://neondb_owner:npg_cATPmxCs1EU5@ep-mute-tooth-a6k3wpy4-pooler.us-west-2.aws.neon.tech/neondb?sslmode=require",
+        default=DATABASE_URL,
         conn_max_age=600,
         ssl_require=True
     )
@@ -100,7 +101,7 @@ else:
     # }
     DATABASES = {
         'default': dj_database_url.config(
-        default="postgresql://neondb_owner:npg_cATPmxCs1EU5@ep-mute-tooth-a6k3wpy4-pooler.us-west-2.aws.neon.tech/neondb?sslmode=require",
+        default=DATABASE_URL,
         conn_max_age=600,
         ssl_require=True
     )

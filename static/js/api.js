@@ -13,7 +13,7 @@ async function playerAttack(attack_num) {
 
     console.log(data)
 
-
+    return data
 }
 
 // async function nextFloor() {

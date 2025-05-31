@@ -1,14 +1,13 @@
 window.onload = async () => {
   await sendLog("Bem vindo jogador!");
-
   await sendButton("ANDAR", async () => walk());
-  
+
 };
 
 async function walk() {
   let monster = await fetch(`${BASE_URL}/game/battle/start/${username}`).then(response => response.json())
 
-  await battle(monster)
+  await battle()
 }
 
 // DJANGO MESSAGES

@@ -105,7 +105,7 @@ async function damageLetterAnimation() {
       easing: 'ease-in-out'
     }
   ).finished
-  letter.style.display = "block";
+  letter.style.display = "none";
 }
 
 async function monsterDeathAnimation() {
