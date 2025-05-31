@@ -4,12 +4,6 @@ window.onload = async () => {
 
 };
 
-async function walk() {
-  let monster = await fetch(`${BASE_URL}/game/battle/start/${username}`).then(response => response.json())
-
-  await battle()
-}
-
 // DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {
     const messages = document.querySelectorAll('.django-message__div');

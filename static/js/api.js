@@ -16,6 +16,11 @@ async function playerAttack(attack_num) {
     return data
 }
 
+async function walk() {
+    let monster = await fetch(`${BASE_URL}/game/battle/start/${username}`).then(response => response.json())
+    await battle()
+}
+
 // async function nextFloor() {
 //     se player puder upar
 

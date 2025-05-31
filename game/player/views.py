@@ -44,6 +44,7 @@ class NextFloor(APIView):
             player = Player.objects.get(user=user)
             
             if player.floor == player.max_floor:
+                player.hp = player.max_hp
                 player.max_floor += 1
 
             player.floor += 1

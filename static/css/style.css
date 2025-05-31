@@ -547,3 +547,19 @@ footer > div {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.toggle_floor__button {
+    border: 2px solid white;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    background-color: #000;
+    width: 20px;
+    height: 20px;
+}
+
+.toggle_floor__button:hover {
+    border: 2px solid grey;
+    color: grey;
+
+}
