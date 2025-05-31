@@ -109,19 +109,20 @@ async function damageLetterAnimation() {
 }
 
 async function monsterDeathAnimation() {
-  await document.getElementById("test").animate(
+  await document.getElementById("monster__image").animate(
     [
-      {offset: 0, transform: "translateY(0px)", backgroundColor: "red"},
-      {offset: .3, transform: "translateY(50px)", backgroundColor: "black"},
+      {offset: 0, transform: "translateY(0px)"},
+      {offset: .3, transform: "translateY(50px)"},
       {offset: .5, transform: "translateY(50px) rotate(45deg)", scale: "0.7"},
-      {offset: .7, transform: "translateY(0px) rotate(80deg)", opacity: "1", backgroundColor: "black", scale: "0.7"},
-      {offset: 1, transform: "translateY(50px) rotate(70deg)", opacity: "0", backgroundColor: "black", scale: "0.7"}
+      {offset: .7, transform: "translateY(0px) rotate(80deg)", opacity: "1", scale: "0.7"},
+      {offset: 1, transform: "translateY(50px) rotate(70deg)", opacity: "0", scale: "0.7"}
     ],
     {
       duration: 1500,
       easing: "ease"
     }
   ).finished
+
 }
 
 // animação pro tung tung sahur --->

@@ -1,8 +1,11 @@
 let opt__area = document.querySelector(".opt-player__area");
 let attack__area = document.querySelector(".atack-animation__area")
 const opt__manager = document.querySelectorAll('.opt-manager');
+let monsterIsAlive = false;
 
 async function battle() {
+    monsterIsAlive = true;
+
     let player = await getPlayer();
     let monster = player.monster;
     console.log(player)
@@ -18,11 +21,15 @@ async function battle() {
 
     // batalha
     monsterAnimation();
-    let previus_hp = monster.hp
     
     opt__manager.forEach((opt) => {
         
         opt.onclick = async (event) => {
+            if (!monsterIsAlive) {
+                console.log("O monstro já está morto.");
+                return;
+            }
+            
             const idTarget = event.currentTarget.id;
 
             switch (idTarget) {
@@ -46,14 +53,13 @@ async function battle() {
                                 player = response.player;
                                 monster = response.monster;
 
-                                let dano = previus_hp - monster.hp;
-                                previus_hp = monster.hp;
+                                let dano = response.player_damage;
 
                                 document.querySelector(".damage-letter").innerHTML = `-${dano}hp`;
-                                document.getElementById("monster-hp__bar").value = monster.hp;
 
                                 opt__area.style.opacity = "0"
                                 opt__area.style.pointerEvents = "none"
+                                opt__area.style.opacity = "0.5";
                                 attack__area.style.backgroundImage = `url(${attack.gif})`
                                 await new Promise(resolve => setTimeout(resolve, 1000))
                                 attack__area.style.backgroundImage = ``
@@ -68,7 +74,14 @@ async function battle() {
                                 opt__area.style.flexDirection = "column";
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
-                                });                                    
+                                });
+                                if (Object.values(monster).length == 0) {
+                                    document.getElementById("monster-hp__bar").value = 0;
+                                    await monsterDeath();
+                                    
+                                    return;
+                                }
+                                document.getElementById("monster-hp__bar").value = monster.hp;
 
                             });
 
@@ -103,4 +116,11 @@ async function battle() {
             }
         };
     });
+}
+
+async function monsterDeath() {
+    monsterIsAlive = false;
+    await monsterDeathAnimation();
+    document.getElementById("monster__image").style.display = 'none'
+
 }
