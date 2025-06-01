@@ -20,18 +20,35 @@ async function walk() {
     let monster = await fetch(`${BASE_URL}/game/battle/start/${username}`).then(response => response.json())
     await battle()
 }
+async function nextFloor() {
+    const response = await fetch(`${BASE_URL}/game/player/floor/next/${username}`);
+    floor = await response.json();
 
-// async function nextFloor() {
-//     se player puder upar
+    document.querySelector(".monster__area").style.backgroundImage = `url(${floor.background})`;
 
-//     const response = await fetch(`${BASE_URL}/game/player/floor/next/${username}`)
+    let player = await getPlayer();
 
-//     data = await response.json()
+    if (player.floor === player.max_floor) {
+        await reativeButton("past_floor");
+        await desativeButton("next_floor");
+        await updatePlayer();
 
-//     return data
+    } else {
+        await reativeButton("next_floor");
+        await updatePlayer();
+    }
 
-//     else
+}
 
-//     await sendLog("Complete todas as quests")
+async function pastFloor() {
+    const response = await fetch(`${BASE_URL}/game/player/floor/past/${username}`);
+    floor = await response.json();
+    document.querySelector(".monster__area").style.backgroundImage = `url(${floor.background})`;
 
-// }
+    let player = await getPlayer();
+
+    if (player.floor == 1) {
+        await desativeButton("past_floor");
+        await reativeButton("next_floor");
+    }
+}

@@ -74,15 +74,16 @@ async function battle() {
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
                                 });
-                                console.log(response.levelup)
+                                console.log(response.levelup);
                                 if (response.levelup) {
-                                    sendLog("Você upou de level!")
-                                    
+                                    sendLog("Você upou de level!");
+                                    await levelUp();
+                                
                                 }
                                 if (Object.values(monster).length == 0) {
-                                    await sendLog(`O monstro morreu!`)
-                                    await sendLog(`Você ganhou ${response.exp} de exp`)
-                                    await sendLog(`Você ganhou ${response.score} de score`)
+                                    await sendLog(`O monstro morreu!`);
+                                    await sendLog(`Você ganhou ${response.exp} de exp`);
+                                    await sendLog(`Você ganhou ${response.score} de score`);
                                     document.getElementById("monster-hp__bar").value = 0;
                                     await monsterDeath();
                                     

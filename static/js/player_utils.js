@@ -76,4 +76,3 @@ async function updateStatus() {
     await createStatus();
 }
 
-

@@ -47,3 +47,25 @@ document.getElementById("toggleSidebar").onclick = () => {
 
   isOpen = !isOpen;
   }
+
+async function levelUp() {
+  await reativeButton("next_floor");
+  await updateStatus();
+  
+}
+
+async function desativeButton(button_id) {
+  document.getElementById(button_id).style.opacity = "0.5";
+  document.getElementById(button_id).style.cursor = "default";
+  document.getElementById(button_id).disable = true;
+  document.getElementById(button_id).style.borderColor = "grey";
+  document.getElementById(button_id).style.color = "grey";
+}
+
+async function reativeButton(button_id) {
+  document.getElementById(button_id).style.opacity = "1";
+  document.getElementById(button_id).style.cursor = "pointer";
+  document.getElementById(button_id).disable = false;
+  document.getElementById(button_id).style.borderColor = "white";
+  document.getElementById(button_id).style.color = "white";
+}

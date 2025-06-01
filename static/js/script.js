@@ -1,8 +1,21 @@
 window.onload = async () => {
   await sendLog("Bem vindo jogador!");
   await sendButton("ANDAR", async () => walk());
+  let player = await getPlayer();
 
+  console.log(player.max_floor, player.floor)
+
+  if (player.max_floor === player.floor) {
+    await desativeButton("next_floor");
+  }
+  
+  document.getElementById("loading").style.display = "none";
 };
+
+document.getElementById("next_floor").onclick = nextFloor;
+document.getElementById("past_floor").onclick = pastFloor;
+
+
 
 // DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {

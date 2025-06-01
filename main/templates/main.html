@@ -116,15 +116,18 @@
 
             </div>
         </footer>
+        <div id="loading">
+            <img src="{% static 'media/backgrounds/loading.gif' %}" alt="loading">
+        </div>
     </div>
     
     <script>
         const username = "{{ username|escapejs }}";
     </script>
     <script src="{% static 'js/utils.js' %}" defer></script> <!-- funções globais -->
+    <script src="{% static 'js/player_utils.js' %}" defer></script> <!-- visuais do jogador -->
     <script src="{% static 'js/api.js' %}" defer></script>
     <script src="{% static 'js/api_utils.js' %}" defer></script> <!-- api -->
-    <script src="{% static 'js/player_utils.js' %}" defer></script> <!-- visuais do jogador -->
     <script src="{% static 'js/player_init.js' %}" defer></script> <!-- inicia o jogador -->
     <script src="{% static 'js/animations.js' %}" defer></script> <!-- debug, testes e extras -->
     <script src="{% static 'js/battle.js' %}" defer></script> <!-- logica de batalha -->
