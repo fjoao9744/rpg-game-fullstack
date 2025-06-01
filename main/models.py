@@ -36,7 +36,7 @@ class Player(models.Model):
     max_floor = models.IntegerField(default=1)
     floor = models.IntegerField(default=1)
     exp = models.IntegerField(default=0)
-    max_exp = models.IntegerField(default=100)
+    max_exp = models.IntegerField(default=60)
     gold = models.IntegerField(default=0)
     hp = models.IntegerField(default=50)
     max_hp = models.IntegerField(default=20)

@@ -1,6 +1,9 @@
 window.onload = async () => {
   await sendLog("Bem vindo jogador!");
-  await sendButton("ANDAR", async () => walk());
+  await sendButton("ANDAR", function() {
+    walk()
+    this.remove()
+  });
   let player = await getPlayer();
 
   console.log(player.max_floor, player.floor)
