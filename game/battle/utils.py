@@ -37,8 +37,10 @@ def get_status_monster(monster):
         monsters = json.load(monsters_json)
         
     monster_key = list(monster.keys())[0]
+    print(monster_key)
     
     monster = monsters.get(monster_key)
+    print(monster)
         
     return monster
 

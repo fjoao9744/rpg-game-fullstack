@@ -12,16 +12,16 @@ class BattleStartView(APIView):
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
             
-            print(player.monster)
-
-            if player.monster.get("message"):
-                print(player.monster.get("message"))
+            if player.floor == 5 or player.floor == 10:
                 player.monster = {}
+                player.save()
+                return Response({}, status=201)
                 
             if player.monster:
                     return Response(player.monster)
-            
+                
             monster = utils.choice_monster(player.floor)
+            
             
             player.monster = monster
             player.save()

@@ -45,6 +45,7 @@ async function nextFloor() {
         await reativeButton("past_floor");
         await desativeButton("next_floor");
     } else {
+        await reativeButton("past_floor");
         await reativeButton("next_floor");
     }
 
@@ -53,7 +54,7 @@ async function nextFloor() {
         await reativeButton("next_floor");
     }
     await updateStatus();
-    await loadingTransition();
+    // await loadingTransition();
 
 }
 
@@ -68,16 +69,19 @@ async function pastFloor() {
 
     if (player.floor == 1) {
         await desativeButton("past_floor");
-        await reativeButton("next_floor");
     } else {
-        await reativeButton("next_floor");
+        await reativeButton("past_floor");
     }
+
+    await reativeButton("next_floor");
+
     if (player.floor == 5) {
         await inDemo();
         await reativeButton("next_floor");
     }
+
     await updateStatus();
-    await loadingTransition();
+    // await loadingTransition();
 }
 
 async function gameOver() {
