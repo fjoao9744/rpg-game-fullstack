@@ -55,6 +55,7 @@ async function battle() {
                             ataque.innerHTML = attack.name;
                             
                             ataque.addEventListener('click', async () => {
+                                ataque.style.pointerEvents = "none";
                                 let response = await playerAttack(x);
                                 player = response.player;
                                 monster = response.monster;
@@ -82,12 +83,6 @@ async function battle() {
                                     opt__area.appendChild(opt);
                                 });
 
-                                if (response.levelup) {
-                                    sendLog("Você upou de level!");
-                                    await levelUp();
-                                    await skillsChoice();
-                                
-                                }
                                 if (Object.values(monster).length == 0) {
                                     await sendLog(`O monstro morreu!`);
                                     await sendLog(`Você ganhou ${response.exp} de exp`);
@@ -112,7 +107,13 @@ async function battle() {
                                 if (response.player.hp <= 0) {
                                     await gameOver();
                                 }
-
+                                
+                                if (response.levelup) {
+                                    sendLog("Você upou de level!");
+                                    await levelUp();
+                                    await skillsChoice();
+                                
+                                }
 
                             });
 
