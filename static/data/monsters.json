@@ -322,8 +322,8 @@
         "level": 10,
         "score": 100,
         "exp": 100,
-        "hp": 200,
-        "atk": 40,
+        "hp": 200000, 
+        "atk": 400000,
         "skills": {
             "golpe com espada" : {
                 "damage": [10, 30],
