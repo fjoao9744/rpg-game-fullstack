@@ -25,6 +25,7 @@
 
     <div id="form__div">
         <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+            <h1 style="color:black;">você precisa de uma conta para jogar</h1>
             {{ form.username.label_tag }} 
             {{ form.username }} <!-- label id: "username__input"-->
             {% if form.username.errors %}

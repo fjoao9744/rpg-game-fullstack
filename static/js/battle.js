@@ -156,5 +156,8 @@ async function monsterDeath() {
     await monsterDeathAnimation();
     document.getElementById("monster__image").style.display = 'none'
     await updateStatus()
-    await sendButton("ANDAR", async () => walk());
+    await sendButton("ANDAR", function() {
+    walk()
+    this.remove()
+    });
 }

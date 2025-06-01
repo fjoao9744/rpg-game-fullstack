@@ -51,7 +51,7 @@ async function nextFloor() {
         await reativeButton("next_floor");
     }
     await updateStatus();
-    // await loadingTransition();
+    await loadingTransition();
 
 }
 
@@ -73,7 +73,7 @@ async function pastFloor() {
         await reativeButton("next_floor");
     }
     await updateStatus();
-    // await loadingTransition();
+    await loadingTransition();
 }
 
 async function gameOver() {
