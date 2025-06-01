@@ -17,6 +17,14 @@ async function playerAttack(attack_num) {
     return data
 }
 
+async function monsterAttack() {
+    let data = await fetch(`${BASE_URL}/game/battle/turn/monster/${username}`).then(response => response.json());
+
+    console.log(data)
+
+    return data
+}
+
 async function walk() {
     await fetch(`${BASE_URL}/game/battle/start/${username}`).then(response => response.json())
     await battle()
@@ -66,4 +74,10 @@ async function pastFloor() {
     }
     await updateStatus();
     // await loadingTransition();
+}
+
+async function gameOver() {
+    window.alert("Você morreu! sua conta será reiniciada")
+    await fetch(`${BASE_URL}/game/player/reload/${username}`)
+    location.reload(true);
 }

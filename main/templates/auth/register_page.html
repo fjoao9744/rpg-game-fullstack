@@ -19,7 +19,9 @@
         {% endfor %}
     {% endif %}
 
+    {% if user.is_authenticated %}
     <button><a href="{% url 'main' %}">voltar</a></button>
+    {% endif %}
 
     <div id="form__div">
         <form action="{% url 'register' %}" method="POST"> {% csrf_token %}
@@ -64,8 +66,8 @@
             {% endif %}
             
             <button type="submit" id="submit-button">Cadastrar</button>
+            <a href="{% url 'login' %}">Ja possui uma conta?</a>
         </form>
-        
     </div>
 
     <script src="{% static 'js/auth.js' %}"></script>

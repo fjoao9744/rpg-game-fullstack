@@ -106,16 +106,15 @@ class BattleMonsterTurnView(APIView):
             monster_attack = random.choice(list(player.monster.get("skills").items()))
 
             attack_damages = monster_attack[1]["damage"]
-
-            player.hp -= random.randint(attack_damages[0], attack_damages[1])
-
-            if player.hp <= 0:
-                player.save()
-                return Response({"game over"})
             
+            monster_damage = random.randint(attack_damages[0], attack_damages[1])
+
+            player.hp -= monster_damage
+            player.save()
+
             player_serializers = PlayerSerializers(player)
             
-            return Response({"player": player_serializers.data, "monster": monster})
+            return Response({"player": player_serializers.data, "monster": monster, "monster_damage": monster_damage, "monster_attack": monster_attack})
 
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=404)

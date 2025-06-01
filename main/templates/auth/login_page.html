@@ -19,7 +19,9 @@
         {% endfor %}
     {% endif %}
 
-    <button><a href="{% url 'main' %}">voltar</a></button>
+    {% if user.is_authenticated %}
+        <button><a href="{% url 'main' %}">voltar</a></button>
+    {% endif %}
 
     <div id="form__div">
         <form action="{% url 'login' %}" method="POST"> {% csrf_token %}

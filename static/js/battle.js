@@ -81,12 +81,11 @@ async function battle() {
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
                                 });
-                                console.log(response.levelup);
+
                                 if (response.levelup) {
                                     sendLog("Você upou de level!");
                                     await levelUp();
                                     await skillsChoice();
-
                                 
                                 }
                                 if (Object.values(monster).length == 0) {
@@ -99,6 +98,21 @@ async function battle() {
                                     return;
                                 }
                                 document.getElementById("monster-hp__bar").value = monster.hp;
+
+                                response = await monsterAttack();
+                                monster = response.monster;
+
+                                console.log(response.monster_attack)
+
+                                await sendLog(`O ${monster.name} usou ${response.monster_attack[0]}`)
+                                await sendLog(`Você perdeu ${response.monster_damage} de hp`)
+                                
+                                await updateStatus();
+                                
+                                if (response.player.hp <= 0) {
+                                    await gameOver();
+                                }
+
 
                             });
 

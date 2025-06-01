@@ -16,18 +16,11 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-
-    {% if not user.is_superuser %}
-        <div id="modal__"></div>
-        <div id="modal">
-            <h1>lançamento: 12:00</h1>
-            <button id="login_button" class="sing-up__button"><a href="{% url 'login' %}">Login</a></button>
-            <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
-        </div>
-    {% endif %}
-
-    
-
+     <div id="modal__"></div>
+    <div id="modal">
+        <p>essa é uma demo, então muitas funções ainda não adicionadas.</p>
+        <button id="continue_button">continuar</button>
+    </div>
     
     <div id="root">
         {% if messages %}
@@ -35,6 +28,7 @@
                 <div class="django-message__div">{{ message }}</div>
             {% endfor %}
         {% endif %}
+
         <header>
             <div>
                 {% if user.is_authenticated %}

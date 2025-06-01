@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import random
 
 def default_atk():
-    return random.randint(2, 5)
+    return random.randint(3, 6)
 
 def default_skill1():
     return {
@@ -38,7 +38,7 @@ class Player(models.Model):
     exp = models.IntegerField(default=0)
     max_exp = models.IntegerField(default=100)
     gold = models.IntegerField(default=0)
-    hp = models.IntegerField(default=20)
+    hp = models.IntegerField(default=50)
     max_hp = models.IntegerField(default=20)
     atk = models.IntegerField(default=default_atk)
     skill1 = models.JSONField(default=default_skill1)
