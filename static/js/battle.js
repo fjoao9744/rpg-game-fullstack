@@ -10,6 +10,13 @@ async function battle() {
     let monster = player.monster;
     console.log(player)
 
+    if (player.floor == 5) {
+        await inDemo();
+        return
+    }
+
+    console.log(monster)
+
     document.getElementById("monster-hp__bar").value = monster.hp
     document.getElementById("monster-hp__bar").max = monster.hp
 
@@ -26,7 +33,7 @@ async function battle() {
         
         opt.onclick = async (event) => {
             if (!monsterIsAlive) {
-                console.log("O monstro já está morto.");
+                await sendLog("O monstro já está morto. Ande novamente");
                 return;
             }
             
@@ -42,7 +49,7 @@ async function battle() {
 
                     try {
                         for (let x = 0; x < player__attacks.length; x++) {
-                            let attack = Object.values(player__attacks[x])[0]
+                            let attack = player__attacks[x]
                             let ataque = document.createElement("div");
                             ataque.className = "options";
                             ataque.innerHTML = attack.name;
@@ -78,6 +85,8 @@ async function battle() {
                                 if (response.levelup) {
                                     sendLog("Você upou de level!");
                                     await levelUp();
+                                    await skillsChoice();
+
                                 
                                 }
                                 if (Object.values(monster).length == 0) {
@@ -104,14 +113,16 @@ async function battle() {
                     break;
 
                 case "speel_option":
-                    document.getElementById(idTarget).style.backgroundColor = 'yellow';
+                    await inDemo();
                     break;
 
                 case "item_option":
-                    document.getElementById(idTarget).style.fontSize = '35px';
+                    await inDemo();
+
                     break;
 
                 default:
+                    await inDemo();
                     document.getElementById(idTarget).animate(
                         [
                             {offset: 0, transform: "translate(0, 0)"},

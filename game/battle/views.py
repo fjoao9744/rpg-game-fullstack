@@ -11,9 +11,15 @@ class BattleStartView(APIView):
         try:
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
+            
+            print(player.monster)
 
+            if player.monster.get("message"):
+                print(player.monster.get("message"))
+                player.monster = {}
+                
             if player.monster:
-                return Response(player.monster)
+                    return Response(player.monster)
             
             monster = utils.choice_monster(player.floor)
             
@@ -37,7 +43,8 @@ class BattlePlayerTurnView(APIView):
 
             key = f"skill{int(attack_num) + 1}"
             attack = getattr(player, key)
-            attack = list(attack.values())[0]
+            print(attack)
+            attack = attack
 
             attack_damage = attack.get("damage")
 

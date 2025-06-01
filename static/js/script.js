@@ -8,6 +8,10 @@ window.onload = async () => {
   if (player.max_floor === player.floor) {
     await desativeButton("next_floor");
   }
+
+  if (player.levelup) {
+    await skillsChoice();
+  }
   
 };
 

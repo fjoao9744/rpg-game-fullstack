@@ -2,6 +2,9 @@ from django.urls import path
 from game.player.views import *
 
 urlpatterns = [
+    # levelup
+    path("levelup/<str:player_name>/", levelupView.as_view()),
+    
     # andares
     path("floor/next/<str:player_name>/", NextFloor.as_view()),
     path("floor/past/<str:player_name>/", PastFloor.as_view()),

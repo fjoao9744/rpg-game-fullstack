@@ -1,6 +1,8 @@
 # Player 
 GET game/player/<player_name> -> retorna os dados do jogador 
 
+GET game/player/levelup/<player_name> -> retorna os dados do jogador | declara q o personagem upou
+
 GET game/player/floor<player_name> -> retorna as caracteristicas do andar atual do player 
 GET game/player/floor/next/<player_name> -> avança um andar | retorna as configurações do andar 
 GET game/player/floor/past/<player_name> -> retrocede um andar | retorna as configurações do andar

@@ -1,4 +1,6 @@
 async function loadingTransition() {
+
+document.querySelectorAll(".toggle_floor__button").forEach(button => button.style.display = "none")
   
 sendLog("loading...")
 
@@ -54,6 +56,8 @@ await new Promise(resolve => setTimeout(resolve, 5000))
 
 document.getElementById("root").removeChild(div1);
 document.getElementById("root").removeChild(div2);  
+
+document.querySelectorAll(".toggle_floor__button").forEach(button => button.style.display = "inline-block")
 }
 
 function monsterAnimation() {
@@ -144,3 +148,4 @@ async function monsterDeathAnimation() {
 //     }
 //   )
 // }
+

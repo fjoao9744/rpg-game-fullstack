@@ -6,7 +6,7 @@ def default_atk():
     return random.randint(2, 5)
 
 def default_skill1():
-    return {"attack1": {
+    return {
             "name": "ataque basico",
             "type": "none",
             "damage": [2, 5],
@@ -14,10 +14,10 @@ def default_skill1():
             "effect": None,
             "value": 0,
             "gif": "static/media/sprites/atacks/attack_basic.gif"
-        }}
+        }
     
 def default_skill2():
-    return {"status1": {
+    return {
         "name": "defender",
         "type": "none",
         "damage": [0, 0],
@@ -25,10 +25,11 @@ def default_skill2():
         "effect": "defense",
         "value": 10,
         "gif": "static/media/sprites/atacks/attack_basic.gif"
-    }}
+    }
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='player', null=False, blank=True)
+    levelup = models.BooleanField(default=True)
     kill = models.IntegerField(default=0)
     score = models.IntegerField(default=0)
     level = models.IntegerField(default=1)

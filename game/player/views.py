@@ -144,3 +144,21 @@ class PlayerAttackView(APIView):
         
         except Player.DoesNotExist:
             return Response({"error": "Player not found"}, status=404)
+
+class levelupView(APIView):
+    def get(self, request, player_name):
+        try:
+            user = User.objects.get(username=player_name)
+            player = Player.objects.get(user=user)
+            
+            player.levelup = False
+            player.save()
+            
+            player_serializers = PlayerSerializers(player)
+            return Response(player_serializers.data)
+        
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=404)
+        
+        except Player.DoesNotExist:
+            return Response({"error": "Player not found"}, status=404)

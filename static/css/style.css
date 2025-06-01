@@ -437,6 +437,7 @@ footer > div {
     min-height: 120px;
     max-height: 120px;
     font-size: 15px;
+    justify-content: center;
     }
 
     .stats-player__area p {
@@ -549,6 +550,7 @@ footer > div {
 }
 
 .toggle_floor__button {
+    display: inline-block;
     border: 2px solid white;
     cursor: pointer;
     color: white;
@@ -581,3 +583,4 @@ footer > div {
     height: 50%;
 
 }
+

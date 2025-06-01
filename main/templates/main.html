@@ -16,6 +16,7 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+
     {% if not user.is_superuser %}
         <div id="modal__"></div>
         <div id="modal">
@@ -24,6 +25,8 @@
             <button id="register_button" class="sing-up__button"><a href="{% url 'register' %}">Cadastrar</a></button>
         </div>
     {% endif %}
+
+    
 
     
     <div id="root">
@@ -125,7 +128,6 @@
         const username = "{{ username|escapejs }}";
     </script>
     <script src="{% static 'js/utils.js' %}" defer></script> <!-- funções globais -->
-    <script src="{% static 'js/player_utils.js' %}" defer></script> <!-- visuais do jogador -->
     <script src="{% static 'js/api.js' %}" defer></script>
     <script src="{% static 'js/api_utils.js' %}" defer></script> <!-- api -->
     <script src="{% static 'js/player_init.js' %}" defer></script> <!-- inicia o jogador -->
