@@ -9,13 +9,14 @@ window.onload = async () => {
     await desativeButton("next_floor");
   }
   
-  document.getElementById("loading").style.display = "none";
 };
 
 document.getElementById("next_floor").onclick = nextFloor;
 document.getElementById("past_floor").onclick = pastFloor;
 
-
+window.addEventListener('load', () => {
+  document.getElementById("loading").style.display = "none";
+})
 
 // DJANGO MESSAGES
 document.addEventListener('DOMContentLoaded', () => {
