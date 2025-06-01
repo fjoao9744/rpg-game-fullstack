@@ -43,8 +43,6 @@ class BattlePlayerTurnView(APIView):
 
             key = f"skill{int(attack_num) + 1}"
             attack = getattr(player, key)
-            print(attack)
-            attack = attack
 
             attack_damage = attack.get("damage")
 
@@ -69,7 +67,7 @@ class BattlePlayerTurnView(APIView):
                 monster = {}
             
             levelup = False
-            if player.exp >= player.max_exp:
+            while player.exp >= player.max_exp:
                 player.level += 1
                 player.max_exp *= 2
                 player.atk += random.randint(1, 3)

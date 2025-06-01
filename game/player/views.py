@@ -150,7 +150,7 @@ class levelupView(APIView):
         try:
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
-            
+                        
             player.levelup = False
             player.save()
             
