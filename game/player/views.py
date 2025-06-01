@@ -43,7 +43,7 @@ class NextFloor(APIView):
             user = User.objects.get(username=player_name)
             player = Player.objects.get(user=user)
             
-            if player.floor == player.max_floor:
+            if player.floor == player.max_floor and player.floor < 10:
                 player.hp = player.max_hp
                 player.max_floor += 1
 

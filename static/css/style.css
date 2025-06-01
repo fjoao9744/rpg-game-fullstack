@@ -423,9 +423,7 @@ footer > div {
     max-width: 44%;
     height: 30%;
     scale: 1.5;
-
 }
-
     .stats-player__area {
     display: flex;
     justify-content: space-between;
@@ -549,7 +547,7 @@ footer > div {
 }
 
 .toggle_floor__button {
-    display: inline-block;
+    display: none;
     border: 2px solid white;
     cursor: pointer;
     color: white;

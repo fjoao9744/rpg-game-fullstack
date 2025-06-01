@@ -52,7 +52,8 @@ class BattlePlayerTurnView(APIView):
                 player_serializers = PlayerSerializers(player)
                 return Response({"player": player_serializers.data, "monster": monster})
             
-            player_damage = random.randint(attack_damage[0], attack_damage[1]) - (random.randint(monster["defe"][0], monster["defe"][1]))
+            player_damage = random.randint(attack_damage[0], attack_damage[1]) - (random.randint(monster["defe"][0], monster["defe"][1])) + player.atk
+            
             if player_damage < 1:
                 player_damage = 1
 
@@ -75,7 +76,9 @@ class BattlePlayerTurnView(APIView):
                 player.max_hp += random.randint(15, 25)
                 player.speed += random.randint(1, 3)
                 player.hp = player.max_hp
+                player.levelup = True
                 levelup = True
+                
                 
             player.monster = monster
             player.save()

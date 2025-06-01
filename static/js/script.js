@@ -8,8 +8,12 @@ window.onload = async () => {
 
   console.log(player.max_floor, player.floor)
 
-  if (player.max_floor === player.floor) {
-    await desativeButton("next_floor");
+  if (player.max_floor !== player.floor) {
+    await reativeButton("next_floor");
+  }
+  if (player.floor > 1) {
+    await reativeButton("past_floor");
+
   }
 
   if (player.levelup) {

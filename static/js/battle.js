@@ -49,7 +49,7 @@ async function battle() {
 
                     try {
                         for (let x = 0; x < player__attacks.length; x++) {
-                            let attack = player__attacks[x]
+                            let attack = player__attacks[x];
                             let ataque = document.createElement("div");
                             ataque.className = "options";
                             ataque.innerHTML = attack.name;
@@ -64,24 +64,30 @@ async function battle() {
 
                                 document.querySelector(".damage-letter").innerHTML = `-${dano}hp`;
 
-                                opt__area.style.opacity = "0"
-                                opt__area.style.pointerEvents = "none"
+                                opt__area.style.opacity = "0";
+                                opt__area.style.pointerEvents = "none";
                                 opt__area.style.opacity = "0.5";
-                                attack__area.style.backgroundImage = `url(${attack.gif})`
-                                await new Promise(resolve => setTimeout(resolve, 1000))
-                                attack__area.style.backgroundImage = ``
+                                attack__area.style.backgroundImage = `url(${attack.gif})`;
+                                await new Promise(resolve => setTimeout(resolve, 1000));
+                                attack__area.style.backgroundImage = ``;
                                 await new Promise(resolve => setTimeout(resolve, 100));
                                 await damageAnimate();
                                 await damageLetterAnimation();
 
-                                await new Promise(resolve => setTimeout(resolve, 1000))
-                                opt__area.style.opacity = "1"
-                                opt__area.style.pointerEvents = "all"
+                                await new Promise(resolve => setTimeout(resolve, 1000));
+                                opt__area.style.opacity = "1";
+                                opt__area.style.pointerEvents = "all";
                                 opt__area.replaceChildren();
                                 opt__area.style.flexDirection = "column";
                                 opt__manager.forEach((opt) => {
                                     opt__area.appendChild(opt);
                                 });
+
+                                if (response.levelup) {
+                                    sendLog("Você upou de level!");
+                                    await levelUp();
+                                    await skillsChoice();
+                                }
 
                                 if (Object.values(monster).length == 0) {
                                     await sendLog(`O monstro morreu!`);
@@ -94,25 +100,16 @@ async function battle() {
                                 }
                                 document.getElementById("monster-hp__bar").value = monster.hp;
 
-                                response = await monsterAttack();
-                                monster = response.monster;
+                                let response2 = await monsterAttack();
+                                monster = response2.monster;
 
-                                console.log(response.monster_attack)
+                                await sendLog(`O ${monster.name} usou ${response2.monster_attack[0]}`);
+                                await sendLog(`Você perdeu ${response2.monster_damage} de hp`);
 
-                                await sendLog(`O ${monster.name} usou ${response.monster_attack[0]}`)
-                                await sendLog(`Você perdeu ${response.monster_damage} de hp`)
-                                
                                 await updateStatus();
                                 
-                                if (response.player.hp <= 0) {
+                                if (response2.player.hp <= 0) {
                                     await gameOver();
-                                }
-                                
-                                if (response.levelup) {
-                                    sendLog("Você upou de level!");
-                                    await levelUp();
-                                    await skillsChoice();
-                                
                                 }
 
                             });

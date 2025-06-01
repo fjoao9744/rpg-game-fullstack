@@ -30,6 +30,8 @@ async function walk() {
     await battle()
 }
 async function nextFloor() {
+    await desativeButton("next_floor");
+
     const response = await fetch(`${BASE_URL}/game/player/floor/next/${username}`);
     let floor = await response.json();
 
@@ -56,6 +58,8 @@ async function nextFloor() {
 }
 
 async function pastFloor() {
+    await desativeButton("past_floor");
+
     const response = await fetch(`${BASE_URL}/game/player/floor/past/${username}`);
     floor = await response.json();
     document.querySelector(".monster__area").style.backgroundImage = `url(${floor.background})`;

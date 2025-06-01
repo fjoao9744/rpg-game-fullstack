@@ -69,6 +69,8 @@ async function reativeButton(button_id) {
   document.getElementById(button_id).disabled = false;
   document.getElementById(button_id).style.borderColor = "white";
   document.getElementById(button_id).style.color = "white";
+  document.getElementById(button_id).style.display = "inline-block";
+
 }
 
 let status_player_div = document.getElementById("status__div");

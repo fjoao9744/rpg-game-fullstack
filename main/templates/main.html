@@ -34,8 +34,8 @@
                 {% if user.is_authenticated %}
                 <div class="stats-player__area">
                     <button id="logout_button" class="sing-up"><a href="{% url 'logout' %}" onclick="localStorage.removeItem('player')">logout</a></button>
-                    <div id="status__div">
                     <p>nome: {{ username }}</p>
+                    <div id="status__div">
                     </div>
 
                     <button id="show-status">...</button>
